@@ -1324,20 +1324,26 @@
     <script src="/js/google-map.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
+        console.log("Initializing Netlify Identity widget...");
         window.netlifyIdentity.on("init", (user) => {
+          console.log("Identity init, current user:", user);
           if (!user) {
-            // If invite token is present, open the signup modal
+            console.log("Checking URL hash:", window.location.hash);
             if (
               window.location.hash &&
               window.location.hash.includes("invite_token")
             ) {
+              console.log("Invite token found, opening signup modal...");
               window.netlifyIdentity.open("signup");
             }
           }
         });
         window.netlifyIdentity.init();
+      } else {
+        console.log("Netlify Identity widget not found");
       }
     </script>
   </body>
