@@ -1323,5 +1323,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="/js/google-map.js"></script>
     <script src="/js/main.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            // If invite token is present, open the signup modal
+            if (
+              window.location.hash &&
+              window.location.hash.includes("invite_token")
+            ) {
+              window.netlifyIdentity.open("signup");
+            }
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>
