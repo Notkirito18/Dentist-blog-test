@@ -14,12 +14,21 @@
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           const hash = window.location.hash;
-          console.log("Checking URL hash:", hash);
           if (hash.startsWith("#invite_token=")) {
-            console.log("Invite token found, opening signup modal...");
             window.netlifyIdentity.open("signup");
+          } else if (!user) {
+            window.netlifyIdentity.open("login");
           }
         });
+
+        // Redirect to admin dashboard after login or signup
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+        window.netlifyIdentity.on("signup", () => {
+          document.location.href = "/admin/";
+        });
+
         window.netlifyIdentity.init();
       }
     </script>
