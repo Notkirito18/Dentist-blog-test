@@ -1323,27 +1323,17 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="/js/google-map.js"></script>
     <script src="/js/main.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      if (window.netlifyIdentity) {
-        console.log("Initializing Netlify Identity widget...");
-        window.netlifyIdentity.on("init", (user) => {
-          console.log("Identity init, current user:", user);
-          if (!user) {
-            console.log("Checking URL hash:", window.location.hash);
-            if (
-              window.location.hash &&
-              window.location.hash.includes("invite_token")
-            ) {
-              console.log("Invite token found, opening signup modal...");
-              window.netlifyIdentity.open("signup");
-            }
-          }
-        });
-        window.netlifyIdentity.init();
-      } else {
-        console.log("Netlify Identity widget not found");
+      const hash = window.location.hash;
+      const tokenTypes = [
+        "invite_token",
+        "confirmation_token",
+        "recovery_token",
+        "access_token",
+      ];
+
+      if (tokenTypes.some((type) => hash.startsWith("#" + type + "="))) {
+        window.location.href = "/admin/" + hash;
       }
     </script>
   </body>

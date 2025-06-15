@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>Content Manager</title>
   </head>
   <body>
-    <!-- Netlify CMS app will mount here -->
-    <!-- Netlify CMS script -->
+    <!-- Mount point for Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          const hash = window.location.hash;
+          console.log("Checking URL hash:", hash);
+          if (hash.startsWith("#invite_token=")) {
+            console.log("Invite token found, opening signup modal...");
+            window.netlifyIdentity.open("signup");
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>
