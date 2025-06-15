@@ -11057,7 +11057,6 @@ textarea.form-control {
 
 .heading-section .subheading {
   font-size: 14px;
-  font-size: 400;
   display: block;
   margin-bottom: 20px;
 }
@@ -11473,6 +11472,23 @@ textarea.form-control {
 }
 .blog-entry .meta > .blog-author:hover {
   color: #000;
+}
+.blog-title > a {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+.blog-title > a:hover {
+  color: #2f89fc;
+}
+.blog-info {
+  color: #b3b3b3;
+  font-size: 13px;
+}
+
+.blog-single-content img {
+  width: 100%;
+  height: auto;
 }
 
 .block-23 ul {

@@ -9,11 +9,11 @@
 <p>
   {{ description | safe }}
 </p>
-{% set imageUrl = thumbnail or 'images/image_4.jpg' %}
+{% set imageUrl = thumbnail or '/images/image_4.jpg' %}
 
 <p>
-  <img src="/{{ imageUrl }}" alt="" class="img-fluid" />
+  <img src="{{ imageUrl }}" alt="" class="img-fluid" />
 </p>
-<p>{{ content | safe }}</p>
+<div class="blog-single-content">{{ content | safe }}</div>
 
 {% endblock %}

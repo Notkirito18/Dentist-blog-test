@@ -17,6 +17,13 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("./src/posts/*.md");
   });
 
+  //  Add a collection for the latest posts:
+  eleventyConfig.addCollection("latestPosts", function (collectionApi) {
+    let posts = collectionApi.getFilteredByGlob("./src/posts/*.md");
+    posts.sort((a, b) => b.date - a.date);
+    return posts.slice(0, 3);
+  });
+
   // 2. Tell Eleventy where to find source and where to write output:
   return {
     dir: {
