@@ -1325,6 +1325,8 @@
     <script src="/js/main.js"></script>
     <script>
       const hash = window.location.hash;
+      const pathname = window.location.pathname;
+
       const tokenTypes = [
         "invite_token",
         "confirmation_token",
@@ -1332,7 +1334,11 @@
         "access_token",
       ];
 
-      if (tokenTypes.some((type) => hash.startsWith("#" + type + "="))) {
+      const isToken = tokenTypes.some((type) =>
+        hash.startsWith("#" + type + "=")
+      );
+
+      if (isToken && pathname === "/") {
         window.location.href = "/admin/" + hash;
       }
     </script>
