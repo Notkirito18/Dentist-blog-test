@@ -12,24 +12,32 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
+        netlifyIdentity.on("init", (user) => {
           const hash = window.location.hash;
-          if (hash.startsWith("#invite_token=")) {
-            window.netlifyIdentity.open("signup");
-          } else if (!user) {
-            window.netlifyIdentity.open("login");
+
+          if (!user) {
+            // Only open signup if there's an invite token
+            if (hash.startsWith("#invite_token=")) {
+              netlifyIdentity.open("signup");
+            }
           }
         });
 
-        // Redirect to admin dashboard after login or signup
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-        window.netlifyIdentity.on("signup", () => {
-          document.location.href = "/admin/";
+        // Only redirect *once* after login/signup
+        netlifyIdentity.on("login", (user) => {
+          // Only redirect if not already on /admin
+          if (!window.location.pathname.endsWith("/admin/")) {
+            window.location.href = "/admin/";
+          }
         });
 
-        window.netlifyIdentity.init();
+        netlifyIdentity.on("signup", (user) => {
+          if (!window.location.pathname.endsWith("/admin/")) {
+            window.location.href = "/admin/";
+          }
+        });
+
+        netlifyIdentity.init();
       }
     </script>
   </body>
