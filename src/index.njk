@@ -815,7 +815,7 @@ eleventyNavigation:
           </div>
         </div>
         <div class="row">
-          {% for post in collections.latestPosts | reverse %}
+          {% for post in collections.latestPosts %}
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
               {% set imageUrl = post.data.thumbnail or '/images/image_1.jpg' %}
