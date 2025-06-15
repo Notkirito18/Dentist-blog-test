@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main # branch to publish content to
+
+media_folder: "images" # where uploaded images are stored (relative to src/)
+public_folder: "/images" # how images are referenced in the built site
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "posts" # folder inside src/ for blog markdown files
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
