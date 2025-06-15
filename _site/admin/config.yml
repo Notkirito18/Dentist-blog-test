@@ -8,7 +8,7 @@ public_folder: "/images" # how images are referenced in the built site
 collections:
   - name: "posts"
     label: "Blog Posts"
-    folder: "posts" # folder inside src/ for blog markdown files
+    folder: "src/posts" # folder inside src/ for blog markdown files
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
