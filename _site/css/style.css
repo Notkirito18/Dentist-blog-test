@@ -11467,12 +11467,12 @@ textarea.form-control {
   margin-bottom: 0px;
   font-size: 15px;
 }
-.blog-entry .meta > div a {
+.blog-entry .meta > .blog-author {
   color: #b3b3b3;
   font-size: 13px;
 }
-.blog-entry .meta > div a:hover {
-  color: #cccccc;
+.blog-entry .meta > .blog-author:hover {
+  color: #000;
 }
 
 .block-23 ul {

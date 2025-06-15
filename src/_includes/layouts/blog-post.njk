@@ -1,12 +1,19 @@
 {% extends "layouts/base.njk" %} {% block content %}
 
 <h2 class="mb-3">{{ title }}</h2>
+
 <p>
+  <span>{{ author | safe }}</span> |
   <em>{{ date | date("MMMM d, yyyy") }}</em>
 </p>
-<p>{{ content | safe }}</p>
 <p>
-  <img src="images/image_4.jpg" alt="" class="img-fluid" />
+  {{ description | safe }}
 </p>
+{% set imageUrl = thumbnail or 'images/image_4.jpg' %}
+
+<p>
+  <img src="/{{ imageUrl }}" alt="" class="img-fluid" />
+</p>
+<p>{{ content | safe }}</p>
 
 {% endblock %}

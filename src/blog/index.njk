@@ -9,23 +9,25 @@ eleventyNavigation:
   <div class="col-md-12 ftco-animate">
     {% for post in collections.posts | reverse %}
     <article class="blog-entry">
+      {% set imageUrl = post.data.thumbnail or 'images/image_1.jpg' %}
       <a
         href="{{ post.url }}"
         class="block-20"
-        style="background-image: url('/images/image_1.jpg')">
+        style="background-image: url('/{{ imageUrl }}')">
       </a>
       <div class="text d-flex py-4">
         <div class="meta mb-3">
           <div>{{ post.date | date("MMMM d, yyyy") }}</div>
-          <div><a href="#">Author</a></div>
+          <div class="blog-author">
+            {{ post.data.author | safe }}
+          </div>
         </div>
         <div class="desc pl-sm-3 pl-md-5">
           <h3 class="heading">
             <a href="{{ post.url }}">{{ post.data.title }}</a>
           </h3>
           <p>
-            {{ post.templateContent | striptags | truncate(150,
-                  true) }}
+            {{ post.data.description | safe }}
           </p>
           <p>
             <a href="{{ post.url }}" class="btn btn-primary btn-outline-primary"
