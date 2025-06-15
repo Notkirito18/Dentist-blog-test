@@ -25,6 +25,8 @@ module.exports = function (eleventyConfig) {
       data: "_data",
       output: "_site",
     },
-    markdownTemplateEngine: "njk", // Optional but recommended
+    // 3. Set template engines:
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   };
 };
