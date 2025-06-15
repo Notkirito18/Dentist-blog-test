@@ -15,26 +15,21 @@
         netlifyIdentity.on("init", (user) => {
           const hash = window.location.hash;
 
-          if (!user) {
-            // Only open signup if there's an invite token
-            if (hash.startsWith("#invite_token=")) {
-              netlifyIdentity.open("signup");
-            }
+          if (!user && hash.startsWith("#invite_token=")) {
+            netlifyIdentity.open("signup");
           }
         });
 
-        // Only redirect *once* after login/signup
         netlifyIdentity.on("login", (user) => {
-          // Only redirect if not already on /admin
-          if (!window.location.pathname.endsWith("/admin/")) {
-            window.location.href = "/admin/";
-          }
+          window.location.href = "/admin/#/collections/posts";
         });
 
         netlifyIdentity.on("signup", (user) => {
-          if (!window.location.pathname.endsWith("/admin/")) {
-            window.location.href = "/admin/";
-          }
+          window.location.href = "/admin/#/collections/posts";
+        });
+
+        netlifyIdentity.on("logout", () => {
+          window.location.href = "/";
         });
 
         netlifyIdentity.init();
