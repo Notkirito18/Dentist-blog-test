@@ -10,7 +10,7 @@ eleventyNavigation:
   <div class="col-md-12 ftco-animate">
     {% for post in collections.posts | reverse %}
     <article class="blog-entry">
-      {% set imageUrl = post.data.thumbnail or '/images/image_1.jpg' %}
+      {% set imageUrl = post.data.thumbnail or '/images/image_1.webp' %}
       <a
         href="{{ post.url }}"
         class="block-20"
