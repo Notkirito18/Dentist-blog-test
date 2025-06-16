@@ -1,87 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Dental Clinic</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+---
+layout: layouts/base.njk
+title: "Dental Clinic"
+permalink: "/"
+---
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700"
-      rel="stylesheet" />
-
-    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/animate.css" />
-
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="/css/magnific-popup.css" />
-
-    <link rel="stylesheet" href="/css/aos.css" />
-
-    <link rel="stylesheet" href="/css/ionicons.min.css" />
-
-    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
-    <link rel="stylesheet" href="/css/jquery.timepicker.css" />
-    <link rel="stylesheet" href="/css/icomoon.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/all.min.css" />
-  </head>
-  <body>
-    <nav
-  class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-  id="ftco-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">Denta<span>Care</span></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#ftco-nav"
-      aria-controls="ftco-nav"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
-    </button>
-
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a href="/" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="/about/" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="/services/" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="/doctors/" class="nav-link">Doctors</a>
-        </li>
-        <li class="nav-item">
-          <a href="/blog/" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="/contact/" class="nav-link">Contact</a>
-        </li>
-        <li class="nav-item cta">
-          <a
-            href="/contact/"
-            class="nav-link"
-            data-toggle="modal"
-            data-target="#modalRequest"
-            ><span>Make an Appointment</span></a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <!-- END nav -->
-
-    
 <section class="home-slider owl-carousel">
   <div class="slider-item" style="background-image: url(images/bg_1.jpg)">
     <div class="overlay"></div>
@@ -787,73 +709,33 @@
       </div>
     </div>
     <div class="row">
-      
+      {% for post in collections.latestPosts %}
       <div class="col-md-4 ftco-animate">
         <div class="blog-entry">
-          
+          {% set imageUrl = post.data.thumbnail or '/images/image_1.jpg' %}
           <a
-            href="/posts/last-testing-post/"
+            href="{{ post.url }}"
             class="block-20"
-            style="background-image: url('/images/gallery-2.jpg')">
+            style="background-image: url('{{ imageUrl }}')">
           </a>
           <div class="py-4">
             <h3 class="blog-title">
-              <a href="/posts/last-testing-post/">Last testing post</a>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
             </h3>
             <div class="mb-3">
               <div class="blog-info">
-                June 15, 2025
+                {{ post.date | date("MMMM d, yyyy") }}
               </div>
-              <div class="blog-info">tester Juble</div>
+              <div class="blog-info">{{ post.data.author }}</div>
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="col-md-4 ftco-animate">
-        <div class="blog-entry">
-          
-          <a
-            href="/posts/third-blog-post/"
-            class="block-20"
-            style="background-image: url('/images/gallery-4.jpg')">
-          </a>
-          <div class="py-4">
-            <h3 class="blog-title">
-              <a href="/posts/third-blog-post/">third blog post</a>
-            </h3>
-            <div class="mb-3">
-              <div class="blog-info">
-                June 15, 2025
-              </div>
-              <div class="blog-info">Axiom the III</div>
-            </div>
-          </div>
-        </div>
+      {% else %}
+      <div class="col-12 text-center">
+        <p class="text-center">No blog posts yet.</p>
       </div>
-      
-      <div class="col-md-4 ftco-animate">
-        <div class="blog-entry">
-          
-          <a
-            href="/posts/image_test/"
-            class="block-20"
-            style="background-image: url('/images/heating-background.webp')">
-          </a>
-          <div class="py-4">
-            <h3 class="blog-title">
-              <a href="/posts/image_test/">Mechanic image upload post</a>
-            </h3>
-            <div class="mb-3">
-              <div class="blog-info">
-                June 15, 2025
-              </div>
-              <div class="blog-info">Dr mechanic</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -1026,138 +908,3 @@
     </div>
   </div>
 </div>
- <footer class="ftco-footer ftco-bg-dark ftco-section">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md-5">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">DentaCare.</h2>
-          <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
-          </p>
-        </div>
-        <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-          <li class="ftco-animate">
-            <a href="#"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
-          </li>
-          <li class="ftco-animate">
-            <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
-          </li>
-          <li class="ftco-animate">
-            <a href="#"><i class="fa-brands fa-instagram fa-lg"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-5">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Office</h2>
-          <div class="block-23 mb-3">
-            <ul>
-              <li>
-                <i class="fa-solid fa-location-dot"></i
-                ><span class="text pl-3"
-                  >203 Fake St. Mountain View, San Francisco, California,
-                  USA</span
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-phone"></i
-                  ><span class="text pl-3">+2 392 3929 210</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-envelope"></i
-                  ><span class="text pl-3">info@yourdomain.com</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="ftco-footer-widget mb-4 ml-md-5">
-          <h2 class="ftco-heading-2">Quick Links</h2>
-          <ul class="list-unstyled">
-            <li><a href="/" class="py-2 d-block">Home</a></li>
-            <li><a href="/about/" class="py-2 d-block">About</a></li>
-            <li><a href="/services/" class="py-2 d-block">Services</a></li>
-            <li><a href="/doctors/" class="py-2 d-block">Doctors</a></li>
-            <li><a href="/blog/" class="py-2 d-block">Blog</a></li>
-            <li><a href="/contact/" class="py-2 d-block">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>Copyright &copy;</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen">
-      <svg class="circular" width="48px" height="48px">
-        <circle
-          class="path-bg"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke="#eeeeee" />
-        <circle
-          class="path"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke-miterlimit="10"
-          stroke="#F96D00" />
-      </svg>
-    </div>
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.easing.1.3.js"></script>
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <script src="/js/jquery.stellar.min.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/jquery.magnific-popup.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/jquery.animateNumber.min.js"></script>
-    <script src="/js/bootstrap-datepicker.js"></script>
-    <script src="/js/jquery.timepicker.min.js"></script>
-    <script src="/js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/js/google-map.js"></script>
-    <script src="/js/main.js"></script>
-    <script>
-      const hash = window.location.hash;
-      const pathname = window.location.pathname;
-
-      const tokenTypes = [
-        "invite_token",
-        "confirmation_token",
-        "recovery_token",
-        "access_token",
-      ];
-
-      const isToken = tokenTypes.some((type) =>
-        hash.startsWith("#" + type + "=")
-      );
-
-      if (isToken && pathname === "/") {
-        window.location.href = "/admin/" + hash;
-      }
-    </script>
-  </body>
-</html>

@@ -821,8 +821,6 @@ h5,
 }
 
 //GALLERY
-.ftco-gallery {
-}
 .gallery {
   display: block;
   height: 450px;
@@ -1385,7 +1383,9 @@ textarea.form-control {
   li {
     list-style: none;
     margin: 0 10px 0 0;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     a {
       height: 50px;
       width: 50px;

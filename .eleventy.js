@@ -24,6 +24,16 @@ module.exports = function (eleventyConfig) {
     return posts.slice(0, 3);
   });
 
+  // Copy the CSS into /css in your built site
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@fortawesome/fontawesome-free/css/all.min.css":
+      "css/all.min.css",
+  });
+  // Copy the webfonts into /webfonts in your built site
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@fortawesome/fontawesome-free/webfonts": "webfonts",
+  });
+
   // 2. Tell Eleventy where to find source and where to write output:
   return {
     dir: {
