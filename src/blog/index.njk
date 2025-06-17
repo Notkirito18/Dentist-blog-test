@@ -6,41 +6,54 @@ eleventyNavigation:
 ---
 
 {% extends "layouts/blog-base.njk" %} {% block content %}
-<div class="row">
-  <div class="col-md-12 ftco-animate">
-    {% for post in collections.posts | reverse %}
-    <article class="blog-entry">
-      {% set imageUrl = post.data.thumbnail or '/images/image_1.webp' %}
-      <a
-        href="{{ post.url }}"
-        class="block-20"
-        style="background-image: url('{{ imageUrl }}')">
-      </a>
-      <div class="text d-flex py-4">
-        <div class="meta mb-3">
-          <div>{{ post.date | date("MMMM d, yyyy") }}</div>
-          <div class="blog-author">
-            {{ post.data.author | safe }}
-          </div>
-        </div>
-        <div class="desc pl-sm-3 pl-md-5">
-          <h3 class="heading">
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
-          </h3>
-          <p>
-            {{ post.data.description | safe }}
-          </p>
-          <p>
-            <a href="{{ post.url }}" class="btn btn-primary btn-outline-primary"
-              >Read more</a
-            >
-          </p>
-        </div>
-      </div>
-    </article>
-    {% else %}
-    <p>No posts yet. Check back soon!</p>
-    {% endfor %}
+<h3 class="mb-2">Find what interests you</h3>
+<form class="search-form">
+  <div class="form-group">
+    <span class="icon fa fa-search"></span>
+    <input
+      type="search"
+      id="search-input"
+      class="form-control"
+      placeholder="Ex: Latest teeth whitening tools" />
   </div>
+</form>
+<div class="row" id="blog-posts">
+  {% for post in collections.posts | reverse %}
+  <article class="blog-entry col-md-12 ftco-animate">
+    {% set imageUrl = post.data.thumbnail or '/images/image_1.webp' %}
+    <a
+      href="{{ post.url }}"
+      class="block-20"
+      style="background-image: url('{{ imageUrl }}')">
+    </a>
+    <div class="text d-flex py-4">
+      <div class="meta mb-3">
+        <div>{{ post.date | date("MMMM d, yyyy") }}</div>
+        <div class="blog-author">{{ post.data.author | safe }}</div>
+      </div>
+      <div class="desc pl-sm-3 pl-md-5">
+        <h3 class="heading">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        <p class="description">{{ post.data.description | safe }}</p>
+        <div class="content" style="display: none">
+          {{ post.templateContent | safe }}
+        </div>
+        <p>
+          <a href="{{ post.url }}" class="btn btn-primary btn-outline-primary"
+            >Read more</a
+          >
+        </p>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
 </div>
+
+<!-- Pagination Controls -->
+<div
+  class="pagination-controls d-flex justify-content-center mt-5"
+  id="pagination-controls"></div>
+
+<script src="/js/searchPaginationScript.js"></script>
 {% endblock %}
