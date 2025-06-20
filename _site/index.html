@@ -33,7 +33,7 @@
   class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
   id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">Denta<span>Care</span></a>
+    <a class="navbar-brand" href="/">Dent<span>ique</span></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -47,7 +47,7 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a href="/" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
@@ -57,9 +57,6 @@
           <a href="/services/" class="nav-link">Services</a>
         </li>
         <li class="nav-item">
-          <a href="/doctors/" class="nav-link">Doctors</a>
-        </li>
-        <li class="nav-item">
           <a href="/blog/" class="nav-link">Blog</a>
         </li>
         <li class="nav-item">
@@ -67,7 +64,7 @@
         </li>
         <li class="nav-item cta">
           <a
-            href="/contact/"
+            href=""
             class="nav-link"
             data-toggle="modal"
             data-target="#modalRequest"
@@ -82,6 +79,7 @@
     <!-- END nav -->
 
     
+<!--  Home Slider Section -->
 <section class="home-slider owl-carousel">
   <div class="slider-item" style="background-image: url(images/bg_1.webp)">
     <div class="overlay"></div>
@@ -104,7 +102,11 @@
             the necessary regelialia.
           </p>
           <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            <a href="#" class="btn btn-primary px-4 py-3"
+            <a
+              data-toggle="modal"
+              data-target="#modalRequest"
+              href=""
+              class="btn btn-primary px-4 py-3"
               >Make an Appointment</a
             >
           </p>
@@ -132,7 +134,11 @@
             the necessary regelialia.
           </p>
           <p>
-            <a href="#" class="btn btn-primary px-4 py-3"
+            <a
+              data-toggle="modal"
+              data-target="#modalRequest"
+              href=""
+              class="btn btn-primary px-4 py-3"
               >Make an Appointment</a
             >
           </p>
@@ -141,7 +147,7 @@
     </div>
   </div>
 </section>
-
+<!-- Modal for Appointment Request -->
 <section class="ftco-intro">
   <div class="container">
     <div class="row no-gutters">
@@ -258,7 +264,7 @@
     </div>
   </div>
 </section>
-
+<!-- Services Section -->
 <section class="ftco-section ftco-services">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-5">
@@ -348,54 +354,60 @@
       </a>
     </p>
   </div>
-  <div class="container-wrap mt-5">
-    <div class="row d-flex no-gutters">
-      <div
-        class="col-md-6 img"
-        style="background-image: url(images/about_2.webp)"></div>
-      <div class="col-md-6 d-flex">
-        <div class="about-wrap">
-          <div class="heading-section heading-section-white mb-5 ftco-animate">
-            <h2 class="mb-2">Dentacare with a personal touch</h2>
-            <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia.
-            </p>
-          </div>
-          <div class="list-services d-flex ftco-animate">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <i class="fa-solid fa-check fa-2xl"></i>
-            </div>
-            <div class="text">
-              <h3>Well Experience Dentist</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
-              </p>
-            </div>
-          </div>
-          <div class="list-services d-flex ftco-animate">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <i class="fa-solid fa-check fa-2xl"></i>
-            </div>
-            <div class="text">
-              <h3>High Technology Facilities</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
-              </p>
+</section>
+<!-- Achievements Section -->
+<section
+  class="ftco-section ftco-counter img"
+  id="section-counter"
+  style="background-image: url(images/bg_1.webp)"
+  data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-md-3 aside-stretch py-5">
+        <div class="heading-section heading-section-white ftco-animate pr-md-4">
+          <h2 class="mb-3">Achievements</h2>
+          <p>
+            A small river named Duden flows by their place and supplies it with
+            the necessary regelialia.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-9 py-5 pl-md-5">
+        <div class="row">
+          <div
+            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="14">0</strong>
+                <span>Years of Experience</span>
+              </div>
             </div>
           </div>
-          <div class="list-services d-flex ftco-animate">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <i class="fa-solid fa-check fa-2xl"></i>
+          <div
+            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="4500">0</strong>
+                <span>Qualified Dentist</span>
+              </div>
             </div>
-            <div class="text">
-              <h3>Comfortable Clinics</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
-              </p>
+          </div>
+          <div
+            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="4200">0</strong>
+                <span>Happy Smiling Customer</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="320">0</strong>
+                <span>Patients Per Year</span>
+              </div>
             </div>
           </div>
         </div>
@@ -403,7 +415,126 @@
     </div>
   </div>
 </section>
-
+<!-- Testimony Section -->
+<section class="ftco-section testimony-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 text-center heading-section ftco-animate">
+        <h2 class="mb-2">Testimony</h2>
+        <span class="subheading">Our Happy Customer Says</span>
+      </div>
+    </div>
+    <div class="row justify-content-center ftco-animate">
+      <div class="col-md-8">
+        <div class="carousel-testimony owl-carousel ftco-owl">
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div
+                class="user-img mb-5"
+                style="background-image: url(images/person_1.webp)">
+                <span
+                  class="quote d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+              </div>
+              <div class="text text-center">
+                <p class="testimony-text mb-5">
+                  Even the all-powerful Pointing has no control about the blind
+                  texts it is an almost unorthographic life One day however a
+                  small line of blind text by the name of Lorem Ipsum decided to
+                  leave for the far World of Grammar.
+                </p>
+                <p class="name">Dennis Green</p>
+                <span class="position">Marketing Manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div
+                class="user-img mb-5"
+                style="background-image: url(images/person_2.webp)">
+                <span
+                  class="quote d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+              </div>
+              <div class="text text-center">
+                <p class="mb-5 testimony-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+                <p class="name">Dennis Green</p>
+                <span class="position">Interface Designer</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div
+                class="user-img mb-5"
+                style="background-image: url(images/person_3.webp)">
+                <span
+                  class="quote d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+              </div>
+              <div class="text text-center">
+                <p class="mb-5 testimony-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+                <p class="name">Dennis Green</p>
+                <span class="position">UI Designer</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div
+                class="user-img mb-5"
+                style="background-image: url(images/person_1.webp)">
+                <span
+                  class="quote d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+              </div>
+              <div class="text text-center">
+                <p class="mb-5 testimony-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+                <p class="name">Dennis Green</p>
+                <span class="position">Web Developer</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div
+                class="user-img mb-5"
+                style="background-image: url(images/person_1.webp)">
+                <span
+                  class="quote d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+              </div>
+              <div class="text text-center">
+                <p class="mb-5 testimony-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+                <p class="name">Dennis Green</p>
+                <span class="position">System Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Our Dentists Section -->
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-5">
@@ -530,188 +661,17 @@
         </div>
       </div>
     </div>
+    <p
+      class="services-link"
+      data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+      <a href="/about#doctors" class="btn btn-primary px-4 py-3"
+        >Check our entire team <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </p>
   </div>
 </section>
 
-<section
-  class="ftco-section ftco-counter img"
-  id="section-counter"
-  style="background-image: url(images/bg_1.webp)"
-  data-stellar-background-ratio="0.5">
-  <div class="container">
-    <div class="row d-flex align-items-center">
-      <div class="col-md-3 aside-stretch py-5">
-        <div class="heading-section heading-section-white ftco-animate pr-md-4">
-          <h2 class="mb-3">Achievements</h2>
-          <p>
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-9 py-5 pl-md-5">
-        <div class="row">
-          <div
-            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="14">0</strong>
-                <span>Years of Experience</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="4500">0</strong>
-                <span>Qualified Dentist</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="4200">0</strong>
-                <span>Happy Smiling Customer</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="320">0</strong>
-                <span>Patients Per Year</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="ftco-section testimony-section bg-light">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 text-center heading-section ftco-animate">
-        <h2 class="mb-2">Testimony</h2>
-        <span class="subheading">Our Happy Customer Says</span>
-      </div>
-    </div>
-    <div class="row justify-content-center ftco-animate">
-      <div class="col-md-8">
-        <div class="carousel-testimony owl-carousel ftco-owl">
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div
-                class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
-                <span
-                  class="quote d-flex align-items-center justify-content-center">
-                  <i class="fa-solid fa-quote-left"></i>
-                </span>
-              </div>
-              <div class="text text-center">
-                <p class="mb-5">
-                  Even the all-powerful Pointing has no control about the blind
-                  texts it is an almost unorthographic life One day however a
-                  small line of blind text by the name of Lorem Ipsum decided to
-                  leave for the far World of Grammar.
-                </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Marketing Manager</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div
-                class="user-img mb-5"
-                style="background-image: url(images/person_2.webp)">
-                <span
-                  class="quote d-flex align-items-center justify-content-center">
-                  <i class="fa-solid fa-quote-left"></i>
-                </span>
-              </div>
-              <div class="text text-center">
-                <p class="mb-5">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Interface Designer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div
-                class="user-img mb-5"
-                style="background-image: url(images/person_3.webp)">
-                <span
-                  class="quote d-flex align-items-center justify-content-center">
-                  <i class="fa-solid fa-quote-left"></i>
-                </span>
-              </div>
-              <div class="text text-center">
-                <p class="mb-5">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">UI Designer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div
-                class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
-                <span
-                  class="quote d-flex align-items-center justify-content-center">
-                  <i class="fa-solid fa-quote-left"></i>
-                </span>
-              </div>
-              <div class="text text-center">
-                <p class="mb-5">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Web Developer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div
-                class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
-                <span
-                  class="quote d-flex align-items-center justify-content-center">
-                  <i class="fa-solid fa-quote-left"></i>
-                </span>
-              </div>
-              <div class="text text-center">
-                <p class="mb-5">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">System Analytics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- Newsletter Section -->
 <section class="ftco-section-parallax">
   <div class="parallax-img d-flex align-items-center">
     <div class="container">
@@ -742,58 +702,7 @@
     </div>
   </div>
 </section>
-
-<section class="ftco-gallery">
-  <div class="container-wrap">
-    <div class="row no-gutters">
-      <div class="col-md-3 ftco-animate">
-        <a
-          href="#"
-          class="gallery img d-flex align-items-center"
-          style="background-image: url(images/gallery_1.webp)">
-          <div
-            class="icon mb-4 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a
-          href="#"
-          class="gallery img d-flex align-items-center"
-          style="background-image: url(images/gallery_2.webp)">
-          <div
-            class="icon mb-4 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a
-          href="#"
-          class="gallery img d-flex align-items-center"
-          style="background-image: url(images/gallery_3.webp)">
-          <div
-            class="icon mb-4 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a
-          href="#"
-          class="gallery img d-flex align-items-center"
-          style="background-image: url(images/gallery_4.webp)">
-          <div
-            class="icon mb-4 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- Latest Blog Section -->
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -876,13 +785,13 @@
     </div>
   </div>
 </section>
-
+<!-- Quote Section -->
 <section class="ftco-quote">
   <div class="container">
     <div class="row">
       <div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
         <div class="heading-section heading-section-white mb-5 ftco-animate">
-          <h2 class="mb-2">DentaCare Procedure &amp; High Quality Services</h2>
+          <h2 class="mb-2">Dentique Procedure &amp; High Quality Services</h2>
         </div>
         <div class="ftco-animate">
           <p>
@@ -964,93 +873,12 @@
 </section>
 
 <div id="map"></div>
-
-<!-- Appointment form -->
-<div
-  class="modal fade"
-  id="modalRequest"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="modalRequestLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="#">
-          <div class="form-group">
-            <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
-            <input
-              type="text"
-              class="form-control"
-              id="appointment_name"
-              placeholder="Full Name" />
-          </div>
-          <div class="form-group">
-            <!-- <label for="appointment_email" class="text-black">Email</label> -->
-            <input
-              type="text"
-              class="form-control"
-              id="appointment_email"
-              placeholder="Email" />
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <!-- <label for="appointment_date" class="text-black">Date</label> -->
-                <input
-                  type="text"
-                  class="form-control appointment_date"
-                  placeholder="Date" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <!-- <label for="appointment_time" class="text-black">Time</label> -->
-                <input
-                  type="text"
-                  class="form-control appointment_time"
-                  placeholder="Time" />
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <!-- <label for="appointment_message" class="text-black">Message</label> -->
-            <textarea
-              name=""
-              id="appointment_message"
-              class="form-control"
-              cols="30"
-              rows="10"
-              placeholder="Message"></textarea>
-          </div>
-          <div class="form-group">
-            <input
-              type="submit"
-              value="Make an Appointment"
-              class="btn btn-primary" />
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
  <footer class="ftco-footer ftco-bg-dark ftco-section">
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-5">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">DentaCare.</h2>
+          <h2 class="ftco-heading-2">Dentique.</h2>
           <p>
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts.
@@ -1103,7 +931,6 @@
             <li><a href="/" class="py-2 d-block">Home</a></li>
             <li><a href="/about/" class="py-2 d-block">About</a></li>
             <li><a href="/services/" class="py-2 d-block">Services</a></li>
-            <li><a href="/doctors/" class="py-2 d-block">Doctors</a></li>
             <li><a href="/blog/" class="py-2 d-block">Blog</a></li>
             <li><a href="/contact/" class="py-2 d-block">Contact</a></li>
           </ul>
@@ -1118,6 +945,89 @@
   </div>
 </footer>
 
+
+    <!-- Appointment form -->
+    <div
+      class="modal fade"
+      id="modalRequest"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalRequestLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRequestLabel">
+              Make an Appointment
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="#">
+              <div class="form-group">
+                <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="appointment_name"
+                  placeholder="Full Name" />
+              </div>
+              <div class="form-group">
+                <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="appointment_email"
+                  placeholder="Email" />
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <!-- <label for="appointment_date" class="text-black">Date</label> -->
+                    <input
+                      type="text"
+                      class="form-control appointment_date"
+                      placeholder="Date" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <!-- <label for="appointment_time" class="text-black">Time</label> -->
+                    <input
+                      type="text"
+                      class="form-control appointment_time"
+                      placeholder="Time" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <!-- <label for="appointment_message" class="text-black">Message</label> -->
+                <textarea
+                  name=""
+                  id="appointment_message"
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="Make an Appointment"
+                  class="btn btn-primary" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">

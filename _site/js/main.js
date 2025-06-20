@@ -295,3 +295,38 @@ AOS.init({
   });
   $(".appointment_time").timepicker();
 })(jQuery);
+
+// about tabs auto navigation
+
+$(document).ready(function () {
+  var $tabs = $(".nav-link-wrap .nav-link");
+  var $tabContainer = $(".about-wrap");
+  var currentIndex = 0;
+  var intervalId;
+
+  function activateTab(index) {
+    $tabs.eq(index).tab("show");
+  }
+
+  function startAutoSwitch() {
+    intervalId = setInterval(function () {
+      currentIndex = (currentIndex + 1) % $tabs.length;
+      activateTab(currentIndex);
+    }, 5000);
+  }
+
+  function stopAutoSwitch() {
+    clearInterval(intervalId);
+  }
+
+  // Update currentIndex when tab changes
+  $tabs.on("shown.bs.tab", function () {
+    currentIndex = $tabs.index(this);
+  });
+
+  // Pause on hover, resume when mouse leaves
+  $tabContainer.hover(stopAutoSwitch, startAutoSwitch);
+
+  // Start the auto-switching
+  startAutoSwitch();
+});
