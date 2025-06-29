@@ -11065,6 +11065,16 @@ textarea.form-control {
 .ftco-footer .block-21 .text .meta > div a {
   color: rgba(255, 255, 255, 0.5);
 }
+.block-21 {
+  border: 2px solid #fff;
+  border-radius: 8px;
+}
+
+.block-21:hover {
+  border: 2px solid #2cbcbc;
+  background-color: #e8f8f8 !important;
+  transition: all 0.1s ease;
+}
 
 .block-21 > div > p {
   color: gray !important;
@@ -11080,10 +11090,6 @@ textarea.form-control {
 .block-21 > .blog-img {
   background-color: #2cbcbc1c !important;
   border-radius: 50%;
-}
-
-.block-21:hover {
-  background-color: #2cbcbc1c;
 }
 
 .block-21:hover > .blog-img {
@@ -12293,6 +12299,12 @@ textarea.form-control {
 .sidebar-box h3 {
   font-size: 18px;
   margin-bottom: 15px;
+}
+.sidebar-all-services:hover,
+.sidebar-all-services:focus {
+  text-decoration: underline;
+  text-decoration-color: #2cbcbc;
+  text-underline-offset: 4px;
 }
 
 .categories li,

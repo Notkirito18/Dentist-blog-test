@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+  eleventyConfig.addPassthroughCopy("src/favicon.png");
 
   eleventyConfig.addFilter("date", (value, format = "yyyy LLL dd") => {
     return DateTime.fromJSDate(new Date(value)).toFormat(format);

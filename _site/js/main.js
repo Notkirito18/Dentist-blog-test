@@ -115,10 +115,6 @@ AOS.init({
     }
   );
 
-  $("#dropdown04").on("show.bs.dropdown", function () {
-    console.log("show");
-  });
-
   // scroll
   var scrollWindow = function () {
     $(window).scroll(function () {
@@ -166,18 +162,24 @@ AOS.init({
           direction === "down" &&
           !$(this.element).hasClass("ftco-animated")
         ) {
-          var comma_separator_number_step =
-            $.animateNumber.numberStepFactories.separator(",");
           $(".number").each(function () {
             var $this = $(this),
-              num = $this.data("number");
-            console.log(num);
+              finalNumber = $this.data("number");
+
             $this.animateNumber(
               {
-                number: num,
-                numberStep: comma_separator_number_step,
+                number: finalNumber,
+                easing: "easeOutQuad",
+                numberStep: function (now, tween) {
+                  var eased = Math.floor(now);
+                  // Format with commas for readability
+                  var formatted = eased
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                  $(tween.elem).text(formatted);
+                },
               },
-              7000
+              3000
             );
           });
         }
@@ -252,9 +254,6 @@ AOS.init({
         }
       }
     );
-    $("body").on("activate.bs.scrollspy", function () {
-      console.log("nice");
-    });
   };
   OnePageNav();
 

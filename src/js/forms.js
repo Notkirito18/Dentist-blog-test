@@ -45,8 +45,6 @@ $(document).ready(function () {
   });
 
   appointmentFormSubmission = (form, isHeroForm) => {
-    console.log("clicked submit", form, isHeroForm);
-
     // variables
     var nameValue = $("#name-input").val();
     var emailValue = $("#email-input").val();
@@ -92,7 +90,7 @@ $(document).ready(function () {
     var phonePattern = /^\+?[0-9]+$/;
 
     var isEmailValid = emailValue.match(emailPattern);
-    var isPhoneValid = phoneValue.length >= 8 && phoneValue.match(phonePattern);
+    var isPhoneValid = phoneValue.length >= 7 && phoneValue.match(phonePattern);
 
     // Check if at least one valid contact method is provided
     if (!isEmailValid && !isPhoneValid) {
@@ -345,6 +343,103 @@ $(document).ready(function () {
           $("#subscribe-success-notif")
             .fadeIn(300)
             // after 1.5s, fade out & reload
+            .delay(1500)
+            .fadeOut(300, () => {
+              window.scrollTo(0, 0);
+            });
+        },
+        error: () => {
+          alert("Something went wrong. Please try again later.");
+        },
+      });
+    }
+  });
+});
+
+//---------------------------------------------------
+//---------------------------------------------------
+// FREE QUOTE FORM
+
+$(document).ready(function () {
+  const quoteForm = $("#quote-form");
+  const quoteSubmitBtn = $("#quote-submit-btn");
+
+  // Utility to clear all quote form errors
+  function resetQuoteErrorMessages() {
+    $(
+      "#name-quote-error, #email-quote-error, #phone-quote-error, #message-quote-error, #service-quote-error"
+    )
+      .text("")
+      .hide();
+  }
+
+  // Reset any error messages & form contents on load
+  resetQuoteErrorMessages();
+  quoteForm.trigger("reset");
+
+  quoteSubmitBtn.on("click", function (e) {
+    e.preventDefault();
+
+    const nameValue = $("#name-quote-input").val().trim();
+    const emailValue = $("#email-quote-input").val().trim();
+    const phoneValue = $("#phone-quote-input").val().trim();
+    const serviceValue = $("#service-quote-input").val();
+    const messageValue = $("#message-quote-input").val().trim();
+
+    const nameError = $("#name-quote-error");
+    const emailError = $("#email-quote-error");
+    const phoneError = $("#phone-quote-error");
+    const serviceError = $("#service-quote-error");
+    const messageError = $("#message-quote-error");
+
+    let formIsValid = true;
+    resetQuoteErrorMessages();
+
+    // Validate name (at least 2 chars)
+    if (nameValue.length < 2) {
+      nameError.text("Name must be at least 2 characters").show();
+      formIsValid = false;
+    }
+
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValue || !emailPattern.test(emailValue)) {
+      emailError.text("Please enter a valid email address").show();
+      formIsValid = false;
+    }
+
+    // Validate phone (at least 7 digits)
+
+    var phonePattern = /^\+?[0-9]+$/;
+    var isPhoneValid = phoneValue.length >= 7 && phoneValue.match(phonePattern);
+
+    if (!isPhoneValid) {
+      phoneError.text("Phone number must be at least 7 digits").show();
+      formIsValid = false;
+    }
+
+    // Validate service selection
+    if (!serviceValue || serviceValue === "none") {
+      serviceError.text("Please select a service").show();
+      formIsValid = false;
+    }
+
+    // Validate message (at least 20 chars)
+    if (!messageValue || messageValue.length < 20) {
+      messageError.text("Message must be at least 20 characters").show();
+      formIsValid = false;
+    }
+
+    // If valid, submit via AJAX and show success
+    if (formIsValid) {
+      $.ajax({
+        url: quoteForm.attr("action"),
+        method: quoteForm.attr("method"),
+        data: quoteForm.serialize(),
+        success: () => {
+          quoteForm.trigger("reset");
+          $("#quote-success-notif")
+            .fadeIn(300)
             .delay(1500)
             .fadeOut(300, () => {
               window.scrollTo(0, 0);

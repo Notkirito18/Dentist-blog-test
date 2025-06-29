@@ -4,28 +4,35 @@
     <div class="row">
       <div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
         <div class="heading-section heading-section-white mb-5 ftco-animate">
-          <h2 class="mb-2">Dentique Procedure &amp; High Quality Services</h2>
+          <h2 class="mb-2">
+            <b>Dentique</b> Dentique Care &amp; Trusted Dental Services
+          </h2>
         </div>
         <div class="ftco-animate">
           <p>
-            Even the all-powerful Pointing has no control about the blind texts
-            it is an almost unorthographic life One day however a small line of
-            blind text by the name of Lorem Ipsum decided to leave for the far
-            World of Grammar. Because there were thousands of bad Commas, wild
-            Question Marks and devious Semikoli
+            At Dentique, we’re committed to delivering modern, gentle dental
+            care in a calming, professional environment. From your first routine
+            check‑up to a complimentary free quote for advanced treatments, our
+            experienced team puts your comfort and confidence first.
           </p>
           <ul class="un-styled my-5">
             <li>
               <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Consectetur adipisicing elit </span>
+              <span class="ml-1">
+                Highly qualified, caring dental professionals</span
+              >
             </li>
             <li>
               <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Adipisci repellat accusamus </span>
+              <span class="ml-1">
+                Latest technology for precise treatments
+              </span>
             </li>
             <li>
               <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Tempore reprehenderit vitae </span>
+              <span class="ml-1">
+                Personalized care plans tailored to your needs
+              </span>
             </li>
           </ul>
         </div>
@@ -34,51 +41,95 @@
         <div class="heading-section mb-5 ftco-animate">
           <h2 class="mb-2">Get a Free Quote</h2>
         </div>
-        <form action="#" class="ftco-animate">
+        <form
+          id="quote-form"
+          action="https://formsubmit.co/djallel123456@gmail.com"
+          method="POST"
+          class="ftco-animate">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
+                  id="name-quote-input"
                   placeholder="Full Name" />
+                <div id="name-quote-error" class="error-msg"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email" />
+                <input
+                  type="text"
+                  name="email"
+                  class="form-control"
+                  id="email-quote-input"
+                  placeholder="Email" />
+                <div id="email-quote-error" class="error-msg"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Phone" />
+                <input
+                  type="text"
+                  name="text"
+                  class="form-control"
+                  id="phone-quote-input"
+                  placeholder="Phone Number" />
+                <div id="phone-quote-error" class="error-msg"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Website" />
+                <select
+                  class="form-control"
+                  name="service"
+                  id="service-quote-input">
+                  <option value="none" disabled selected>Select service</option>
+                  <option value="Check-Up & Cleaning">
+                    Check-Up & Cleaning
+                  </option>
+                  <option value="Tooth Extraction">Tooth Extraction</option>
+                  <option value="Fillings / Cavities Treatment">
+                    Fillings / Cavities Treatment
+                  </option>
+                  <option value="Braces / Veneers">Braces / Veneers</option>
+                  <option value="Root Canal Treatment">
+                    Root Canal Treatment
+                  </option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="7"
+                  name="message"
+                  id="message-quote-input"
                   class="form-control"
+                  cols="30"
+                  rows="3"
                   placeholder="Message"></textarea>
+                <div id="message-quote-error" class="error-msg"></div>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 d-flex justify-content-end">
               <div class="form-group">
-                <input
-                  type="submit"
-                  value="Get a Quote"
-                  class="btn btn-primary py-3 px-5" />
+                <button
+                  type="button"
+                  id="quote-submit-btn"
+                  class="btn contact-msg-btn">
+                  Get a Quote
+                </button>
               </div>
             </div>
           </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="From Dentist website - Quote form !" />
+          <input type="hidden" name="_captcha" value="false" />
         </form>
       </div>
     </div>

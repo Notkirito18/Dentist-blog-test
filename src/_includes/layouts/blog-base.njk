@@ -77,9 +77,8 @@
               <a
                 href="{{ service.url }}"
                 class="block-21 px-3 py-3 mb-4 d-flex text-decoration-none">
-                <div
-                  class="blog-img mr-4"
-                  style="background-image: url('{{ service.data.thumbnail }}')"></div>
+                <!-- prettier-ignore -->
+                <div class="blog-img mr-4" style="background-image: url('{{ service.data.thumbnail }}')"></div>
                 <div class="text">
                   <h3 class="mb-0">{{ service.data.title }}</h3>
                   <p>
@@ -88,7 +87,9 @@
                 </div>
               </a>
               {% endfor %}
-              <a href="/services/">Check all services</a>
+              <div class="sidebar-all-services d-flex justify-content-end">
+                <a href="/services/">Check all services</a>
+              </div>
             </div>
           </div>
         </div>
