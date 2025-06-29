@@ -27,8 +27,26 @@
     <link rel="stylesheet" href="/css/icomoon.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/all.min.css" />
+    <script src="/js/map.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256‑GeQMOkCejiWKVhQ5Mj4kLbXokzTvzuYgQ2do4GL91jY="
+      crossorigin="" />
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256‑u4+5iDAbN9CWHWj+zVF85LeSOQV3Bd1ykM7y/fudqgI="
+      crossorigin=""></script>
   </head>
   <body>
+    <!-- success notifications -->
+    <div id="success-notif" class="success-notif">
+      Your booking was successful
+    </div>
+    <div id="subscribe-success-notif" class="success-notif">
+      Subscription successful
+    </div>
     <nav
   class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
   id="ftco-navbar">
@@ -42,7 +60,7 @@
       aria-controls="ftco-nav"
       aria-expanded="false"
       aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
+      <i class="fa-solid fa-bars"></i> Menu
     </button>
 
     <div class="collapse navbar-collapse" id="ftco-nav">
@@ -79,90 +97,112 @@
     <!-- END nav -->
 
     
-<section class="home-slider owl-carousel">
-  <div
-    class="slider-item bread-item"
-    style="background-image: url('/images/bg_1.webp')"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container" data-scrollax-parent="true">
-      <div class="row slider-text align-items-end">
-        <div class="col-md-7 col-sm-12 ftco-animate mb-5">
-          <p
-            class="breadcrumbs"
-            data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-            <span class="mr-2"><a href="/">Home</a></span>
-            <span>Blog</span>
-          </p>
-          <h1
-            class="mb-3"
-            data-scrollax=" properties: { translateY: '70%', opacity: .9}">
-            Contact Us
-          </h1>
-        </div>
+<!-- form send success notification -->
+<div id="contact-success-notif" class="success-notif">
+  Your message was sent successful
+</div>
+<!-- hero section -->
+<section class="page-hero">
+  <div class="hero-mask" style="background-image: url(/images/bg_1.webp)">
+    <div class="service-overlay"></div>
+    <div class="container service-page-hero-content mb-5">
+      <div class="row">
+        <p class="breadcrumbs ml-3 ml-lg-0">
+          <span class="mr-2"><a href="/">Home</a></span>
+          <span>Contact</span>
+        </p>
       </div>
+      <h1
+        class="hero-title mb-3"
+        data-scrollax=" properties: { translateY: '70%', opacity: .9}">
+        Let’s Talk About Your Smile
+      </h1>
     </div>
   </div>
 </section>
 
 <section class="ftco-section contact-section ftco-degree-bg">
   <div class="container">
-    <div class="row d-flex mb-5 contact-info">
-      <div class="col-12 heading-section mb-4">
-        <h2 class="mb-4">Where to find us</h2>
+    <div class="row block-9">
+      <div class="col-md-6 pr-md-5">
+        <div class="heading-section">
+          <h2 class="mb-4">Send a message now</h2>
+        </div>
+        <form
+          id="contact-form"
+          action="https://formsubmit.co/djallel123456@gmail.com"
+          method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="name-contact-input"
+              placeholder="Full Name" />
+            <div id="name-contact-error" class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="email"
+              class="form-control"
+              id="email-contact-input"
+              placeholder="Email" />
+            <div id="email-contact-error" class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="subject"
+              class="form-control"
+              id="subject-contact-input"
+              placeholder="Subject" />
+            <div id="subject-contact-error" class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <textarea
+              name="message"
+              id="message-contact-input"
+              class="form-control"
+              cols="30"
+              rows="3"
+              placeholder="Message"></textarea>
+            <div id="message-contact-error" class="error-msg"></div>
+          </div>
+          <div class="form-group d-flex justify-content-end">
+            <button
+              type="button"
+              id="contact-submit-btn"
+              class="btn contact-msg-btn">
+              Send Message
+            </button>
+          </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="From Dentist website - Contact form !" />
+          <input type="hidden" name="_captcha" value="false" />
+        </form>
       </div>
-      <div class="col-md-3">
+
+      <div class="col-md-6 contact-info">
+        <div class="heading-section">
+          <h2 class="mb-4">Where to find us</h2>
+        </div>
         <p>
-          <span>Address:</span> 198 West 21th Street, Suite 721 New York NY
-          10016
+          <span>Address:</span>
+          <a href=""> 203 Rain St. Mountain View, New york, USA </a>
         </p>
-      </div>
-      <div class="col-md-3">
         <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-      </div>
-      <div class="col-md-3">
         <p>
           <span>Email:</span>
           <a href="mailto:info@yoursite.com">info@yoursite.com</a>
         </p>
-      </div>
-      <div class="col-md-3">
         <p><span>Website</span> <a href="#">yoursite.com</a></p>
       </div>
     </div>
-    <div class="row block-9">
-      <div class="col-md-6 pr-md-5">
-        <form action="#">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Name" />
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Email" />
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Subject" />
-          </div>
-          <div class="form-group">
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="7"
-              class="form-control"
-              placeholder="Message"></textarea>
-          </div>
-          <div class="form-group">
-            <input
-              type="submit"
-              value="Send Message"
-              class="btn btn-primary py-3 px-5" />
-          </div>
-        </form>
-      </div>
-
-      <div class="col-md-6" id="map"></div>
-    </div>
   </div>
+  <div class="container" id="map"></div>
 </section>
  <footer class="ftco-footer ftco-bg-dark ftco-section">
   <div class="container">
@@ -171,8 +211,9 @@
         <div class="ftco-footer-widget mb-4">
           <h2 class="ftco-heading-2">Dentique.</h2>
           <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
+            Providing trusted, gentle dental care for all ages — from routine
+            checkups to advanced treatments — in a warm, patient-first
+            environment. Your smile is our priority
           </p>
         </div>
         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -195,8 +236,7 @@
               <li>
                 <i class="fa-solid fa-location-dot"></i
                 ><span class="text pl-3"
-                  >203 Fake St. Mountain View, San Francisco, California,
-                  USA</span
+                  >203 Rain St. Mountain View, New york, USA</span
                 >
               </li>
               <li>
@@ -206,9 +246,9 @@
                 >
               </li>
               <li>
-                <a href="#"
+                <a href="mailto:info@dentique.org"
                   ><i class="fa-solid fa-envelope"></i
-                  ><span class="text pl-3">info@yourdomain.com</span></a
+                  ><span class="text pl-3">info@dentique.org</span></a
                 >
               </li>
             </ul>
@@ -247,10 +287,8 @@
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalRequestLabel">
-              Make an Appointment
-            </h5>
+          <div class="modal-header modal-header-opening-hours">
+            <h5 class="modal-title" id="modalRequestLabel">Opening Hours</h5>
             <button
               type="button"
               class="close"
@@ -259,61 +297,122 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <div class="modal-body modal-body-opening-hours">
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Monday - Friday</span>
+              <span>8:00 - 19:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Saturday</span>
+              <span>10:00 - 17:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Sunday</span>
+              <span>10:00 - 14:00</span>
+            </p>
+          </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRequestLabel">
+              Make an Appointment
+            </h5>
+          </div>
           <div class="modal-body">
-            <form action="#">
+            <form
+              id="appointment-form"
+              action="https://formsubmit.co/djallel123456@gmail.com"
+              method="POST">
               <div class="form-group">
-                <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
-                  id="appointment_name"
+                  id="name-input"
                   placeholder="Full Name" />
+                <div id="name-error" class="error-msg"></div>
               </div>
               <div class="form-group">
-                <!-- <label for="appointment_email" class="text-black">Email</label> -->
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
-                  id="appointment_email"
+                  id="email-input"
                   placeholder="Email" />
+                <div id="email-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control"
+                  id="phone-input"
+                  placeholder="Phone Number" />
+                <div id="phone-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="service" id="service-input">
+                  <option value="none" disabled selected>Select service</option>
+                  <option value="Check-Up & Cleaning">
+                    Check-Up & Cleaning
+                  </option>
+                  <option value="Tooth Extraction">Tooth Extraction</option>
+                  <option value="Fillings / Cavities Treatment">
+                    Fillings / Cavities Treatment
+                  </option>
+                  <option value="Braces / Clear Aligners">
+                    Braces / Clear Aligners
+                  </option>
+                  <option value="Root Canal Treatment">
+                    Root Canal Treatment
+                  </option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_date" class="text-black">Date</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_date"
+                      type="date"
+                      id="date-input"
+                      name="date"
+                      class="form-control"
                       placeholder="Date" />
+                    <div id="date-error" class="error-msg"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_time" class="text-black">Time</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_time"
+                      type="time"
+                      id="time-input"
+                      name="time"
+                      class="form-control"
                       placeholder="Time" />
+                    <div id="time-error" class="error-msg"></div>
                   </div>
                 </div>
               </div>
-
               <div class="form-group">
-                <!-- <label for="appointment_message" class="text-black">Message</label> -->
                 <textarea
-                  name=""
-                  id="appointment_message"
+                  name="message"
+                  id="message-input"
                   class="form-control"
                   cols="30"
-                  rows="10"
+                  rows="3"
                   placeholder="Message"></textarea>
               </div>
-              <div class="form-group">
-                <input
-                  type="submit"
-                  value="Make an Appointment"
-                  class="btn btn-primary" />
+              <div class="form-group d-flex justify-content-end">
+                <button
+                  id="appointment-submit-btn"
+                  type="button"
+                  class="btn btn-primary make-appointment-btn">
+                  Make an Appointment
+                </button>
               </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="From Dentist website - Appointment form !" />
+              <input type="hidden" name="_captcha" value="false" />
             </form>
           </div>
         </div>
@@ -358,8 +457,9 @@
     <script src="/js/jquery.timepicker.min.js"></script>
     <script src="/js/scrollax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/js/google-map.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/forms.js"></script>
+
     <script>
       const hash = window.location.hash;
       const pathname = window.location.pathname;

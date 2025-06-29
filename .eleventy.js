@@ -13,15 +13,40 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(new Date(value)).toFormat(format);
   });
 
+  // posts collection
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/posts/*.md");
   });
 
-  //  Add a collection for the latest posts:
+  //  posts collection sorted by date
   eleventyConfig.addCollection("latestPosts", function (collectionApi) {
     let posts = collectionApi.getFilteredByGlob("./src/posts/*.md");
     posts.sort((a, b) => b.date - a.date);
     return posts.slice(0, 3);
+  });
+
+  // services collection
+  eleventyConfig.addCollection("services", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/services_data/*.md");
+  });
+
+  // homeServices collection
+  eleventyConfig.addCollection("homeServices", function (collectionApi) {
+    let services = collectionApi.getFilteredByGlob("./src/services_data/*.md");
+    let servicesSliced = services.slice(0, 4);
+    return servicesSliced;
+  });
+
+  //detists collection
+  eleventyConfig.addCollection("dentists", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/dentists_data/*.md");
+  });
+
+  // homeDentists collection
+  eleventyConfig.addCollection("homeDentists", function (collectionApi) {
+    let dentists = collectionApi.getFilteredByGlob("./src/dentists_data/*.md");
+    let dentistsSliced = dentists.slice(0, 4);
+    return dentistsSliced;
   });
 
   // Copy the CSS into /css in your built site

@@ -31,122 +31,64 @@
   <body>
     {% include "partials/navbar.njk" %}
     <!-- END nav -->
-
-    <section class="home-slider owl-carousel">
-      <div
-        class="slider-item bread-item"
-        style="background-image: url('/images/bg_1.webp')"
-        data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container" data-scrollax-parent="true">
-          <div class="row slider-text align-items-end">
-            <div class="col-md-7 col-sm-12 ftco-animate mb-5">
-              <p
-                class="breadcrumbs"
-                data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-                <span class="mr-2"><a href="/">Home</a></span>
-
-                {# If we’re on the listing page (title === "Our Blog")… #} {% if
-                title == "Our Blog" %}
-                <span>Blog</span>
-
-                {# Otherwise we must be on a post page… #} {% else %}
-                <span class="mr-2"><a href="/blog/">Blog</a></span>
-                <span>{{ title }}</span>
-                {% endif %}
-              </p>
-              <h1
-                class="mb-3"
-                data-scrollax=" properties: { translateY: '70%', opacity: .9}">
-                Read Our Blog
-              </h1>
-            </div>
+    <section class="page-hero">
+      <div class="hero-mask" style="background-image: url(/images/bg_3.webp)">
+        <div class="service-overlay"></div>
+        <div class="container service-page-hero-content mb-5">
+          <div class="row">
+            <p
+              class="breadcrumbs"
+              data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+              <span class="mr-2"><a href="/">Home</a></span>
+              {% if title == "Our Blog" %}
+              <span>Blog</span>
+              {% else %}
+              <span class="mr-2"><a href="/blog/">Blog</a></span>
+              <span>{{ title }}</span>
+              {% endif %}
+            </p>
           </div>
+          <h1
+            class="hero-title mb-3"
+            data-scrollax=" properties: { translateY: '70%', opacity: .9}">
+            Read Our Blog
+          </h1>
         </div>
       </div>
     </section>
+
     <section class="ftco-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 ftco-animate">
+          <div class="col-12 col-md-8 ftco-animate">
             {% block content %}{% endblock %}
           </div>
           <!-- .col-md-8 -->
-          <div class="col-md-4 sidebar ftco-animate">
+          <div class="col-md-4 sidebar ftco-animate d-none d-lg-block">
             <div class="sidebar-box ftco-animate">
-              <h3>Recent Blog</h3>
-              <div class="block-21 mb-4 d-flex">
-                <a
-                  class="blog-img mr-4"
-                  style="background-image: url(/images/image_1.webp)"></a>
-                <div class="text">
-                  <h3 class="heading">
-                    <a href="#"
-                      >Even the all-powerful Pointing has no control about the
-                      blind texts</a
-                    >
-                  </h3>
-                  <div class="meta">
-                    <div>
-                      <a href="#"
-                        ><i class="fa-solid fa-calendar-days"></i> July 12,
-                        2018</a
-                      >
-                    </div>
-                    <div>
-                      <a href="#"><i class="fa-solid fa-user"></i> Admin</a>
-                    </div>
-                  </div>
-                </div>
+              <div class="heading-section mb-4">
+                <h2>Check Our Services</h2>
+                <p>
+                  Our comprehensive dental services combine expert skills with
+                  gentle care to keep your smile healthy every day.
+                </p>
               </div>
-              <div class="block-21 mb-4 d-flex">
-                <a
+              {% for service in collections.homeServices %}
+              <a
+                href="{{ service.url }}"
+                class="block-21 px-3 py-3 mb-4 d-flex text-decoration-none">
+                <div
                   class="blog-img mr-4"
-                  style="background-image: url(/images/image_2.webp)"></a>
+                  style="background-image: url('{{ service.data.thumbnail }}')"></div>
                 <div class="text">
-                  <h3 class="heading">
-                    <a href="#"
-                      >Even the all-powerful Pointing has no control about the
-                      blind texts</a
-                    >
-                  </h3>
-                  <div class="meta">
-                    <div>
-                      <a href="#"
-                        ><i class="fa-solid fa-calendar-days"></i> July 12,
-                        2018</a
-                      >
-                    </div>
-                    <div>
-                      <a href="#"><i class="fa-solid fa-user"></i> Admin</a>
-                    </div>
-                  </div>
+                  <h3 class="mb-0">{{ service.data.title }}</h3>
+                  <p>
+                    {{ (service.data.description or '') | truncate(30, true, '...') }}
+                  </p>
                 </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a
-                  class="blog-img mr-4"
-                  style="background-image: url(/images/image_3.webp)"></a>
-                <div class="text">
-                  <h3 class="heading">
-                    <a href="#"
-                      >Even the all-powerful Pointing has no control about the
-                      blind texts</a
-                    >
-                  </h3>
-                  <div class="meta">
-                    <div>
-                      <a href="#"
-                        ><i class="fa-solid fa-calendar-days"></i> July 12,
-                        2018</a
-                      >
-                    </div>
-                    <div>
-                      <a href="#"><i class="fa-solid fa-user"></i>Admin</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </a>
+              {% endfor %}
+              <a href="/services/">Check all services</a>
             </div>
           </div>
         </div>
@@ -155,6 +97,7 @@
 
     {% include "partials/footer.njk" %}
 
+    <!-- Appointment form -->
     <!-- Appointment form -->
     <div
       class="modal fade"
@@ -165,10 +108,8 @@
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalRequestLabel">
-              Make an Appointment
-            </h5>
+          <div class="modal-header modal-header-opening-hours">
+            <h5 class="modal-title" id="modalRequestLabel">Opening Hours</h5>
             <button
               type="button"
               class="close"
@@ -177,62 +118,125 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <div class="modal-body modal-body-opening-hours">
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Monday - Friday</span>
+              <span>8:00 - 19:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Saturday</span>
+              <span>10:00 - 17:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Sunday</span>
+              <span>10:00 - 14:00</span>
+            </p>
+          </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRequestLabel">
+              Make an Appointment
+            </h5>
+          </div>
           <div class="modal-body">
-            <form action="#">
+            <form
+              id="appointment-form"
+              action="https://formsubmit.co/djallel123456@gmail.com"
+              method="POST">
               <div class="form-group">
-                <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
-                  id="appointment_name"
+                  id="name-input"
                   placeholder="Full Name" />
+                <div id="name-error" class="error-msg"></div>
               </div>
               <div class="form-group">
-                <!-- <label for="appointment_email" class="text-black">Email</label> -->
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
-                  id="appointment_email"
+                  id="email-input"
                   placeholder="Email" />
+                <div id="email-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control"
+                  id="phone-input"
+                  placeholder="Phone Number" />
+                <div id="phone-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="service" id="service-input">
+                  <option value="none" disabled selected>Select service</option>
+                  <option value="Check-Up & Cleaning">
+                    Check-Up & Cleaning
+                  </option>
+                  <option value="Tooth Extraction">Tooth Extraction</option>
+                  <option value="Fillings / Cavities Treatment">
+                    Fillings / Cavities Treatment
+                  </option>
+                  <option value="Braces / Clear Aligners">
+                    Braces / Clear Aligners
+                  </option>
+                  <option value="Root Canal Treatment">
+                    Root Canal Treatment
+                  </option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_date" class="text-black">Date</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_date"
+                      type="date"
+                      name="date"
+                      class="form-control"
                       placeholder="Date" />
+                    <div id="date-error" class="error-msg"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_time" class="text-black">Time</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_time"
+                      type="time"
+                      name="time"
+                      class="form-control"
                       placeholder="Time" />
+                    <div id="time-error" class="error-msg"></div>
                   </div>
                 </div>
               </div>
-
               <div class="form-group">
-                <!-- <label for="appointment_message" class="text-black">Message</label> -->
                 <textarea
-                  name=""
-                  id="appointment_message"
+                  name="message"
+                  id="message-input"
                   class="form-control"
                   cols="30"
-                  rows="10"
+                  rows="3"
                   placeholder="Message"></textarea>
               </div>
               <div class="form-group">
-                <input
-                  type="submit"
-                  value="Make an Appointment"
-                  class="btn btn-primary" />
+                <button
+                  id="appointment-submit-btn"
+                  type="button"
+                  class="btn btn-primary">
+                  Make an Appointment
+                </button>
               </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="From Dentist website - Appointment form !" />
+              <input type="hidden" name="_captcha" value="false" />
             </form>
+            <!-- success notification -->
+            <div id="success-notif" class="success-notif">
+              Your booking was successful
+            </div>
           </div>
         </div>
       </div>
@@ -276,7 +280,7 @@
     <script src="/js/jquery.timepicker.min.js"></script>
     <script src="/js/scrollax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/js/google-map.js"></script>
+    <script src="/js/map.js"></script>
     <script src="/js/main.js"></script>
     <script>
       const hash = window.location.hash;

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Our Services - {{ title or "Default Site Title" }}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+
+    <link rel="stylesheet" href="/css/aos.css" />
+
+    <link rel="stylesheet" href="/css/ionicons.min.css" />
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="/css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="/css/icomoon.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/all.min.css" />
+  </head>
+  <body>
+    {% include "partials/navbar.njk" %}
+    <!-- END nav -->
+
+    <section class="service-page-hero">
+      <div class="hero-mask" style="background-image: url('{{ hero_image }}');">
+        <div class="service-overlay"></div>
+        <div class="container service-page-hero-content">
+          <div class="row">
+            <p class="breadcrumbs ml-3 ml-lg-0">
+              <span class="mr-2"><a href="/">Home</a></span>
+              {% if title == "Our Services" %}
+              <span>Services</span>
+              {% else %}
+              <span class="mr-2"><a href="/services/">Services</a></span>
+              <span>{{ title }}</span>
+              {% endif %}
+            </p>
+          </div>
+          <div class="row">
+            <div
+              class="col-md-7 col-sm-12 ftco-animate mb-5 service-page-description">
+              <div class="heading-section title-section">
+                <img src="{{ thumbnail }}" alt="thumbnail" />
+                <h2>
+                  {{ title }}
+                </h2>
+              </div>
+              <p>{{ description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row d-md-flex mb-5">
+          <div class="col-md-6 ftco-animate img order-md-last">
+            <video
+              preload="none"
+              loading="lazy"
+              controls
+              width="640"
+              height="360"
+              poster="{{ video_thumbnail }}"
+              style="object-fit: contain; background-color: black">
+              >
+              <source src="{{ video }}" type="video/mp4" />
+            </video>
+          </div>
+          <div class="col-md-6 ftco-animate">
+            <div class="heading-section mb-4 mt-3 mt-md-0">
+              <h2 class="mb-4">{{ text.subtitle1 }}</h2>
+            </div>
+            <div class="content-section">
+              <p>
+                {{ text.paragraph1 }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row d-md-flex mb-5">
+          <div class="col-md-6 ftco-animate img">
+            <div class="content_image">
+              <img src="{{ content_image }}" alt="{{ title }}" />
+            </div>
+          </div>
+          <div class="col-md-6 ftco-animate">
+            <div class="heading-section mb-4 mt-3 mt-md-0">
+              <h2 class="mb-4">{{ text.subtitle2 }}</h2>
+            </div>
+            <div class="content-section">
+              <p>
+                {{ text.paragraph2 }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include "partials/quote.njk" %} {% include "partials/footer.njk" %}
+
+    <!-- Appointment form -->
+    <div
+      class="modal fade"
+      id="modalRequest"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalRequestLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header-opening-hours">
+            <h5 class="modal-title" id="modalRequestLabel">Opening Hours</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body modal-body-opening-hours">
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Monday - Friday</span>
+              <span>8:00 - 19:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Saturday</span>
+              <span>10:00 - 17:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Sunday</span>
+              <span>10:00 - 14:00</span>
+            </p>
+          </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRequestLabel">
+              Make an Appointment
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form
+              id="appointment-form"
+              action="https://formsubmit.co/djallel123456@gmail.com"
+              method="POST">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name-input"
+                  placeholder="Full Name" />
+                <div id="name-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="email"
+                  class="form-control"
+                  id="email-input"
+                  placeholder="Email" />
+                <div id="email-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control"
+                  id="phone-input"
+                  placeholder="Phone Number" />
+                <div id="phone-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="service" id="service-input">
+                  <option value="none" disabled selected>Select service</option>
+                  <option value="Check-Up & Cleaning">
+                    Check-Up & Cleaning
+                  </option>
+                  <option value="Tooth Extraction">Tooth Extraction</option>
+                  <option value="Fillings / Cavities Treatment">
+                    Fillings / Cavities Treatment
+                  </option>
+                  <option value="Braces / Clear Aligners">
+                    Braces / Clear Aligners
+                  </option>
+                  <option value="Root Canal Treatment">
+                    Root Canal Treatment
+                  </option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input
+                      type="date"
+                      name="date"
+                      class="form-control"
+                      placeholder="Date" />
+                    <div id="date-error" class="error-msg"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input
+                      type="time"
+                      name="time"
+                      class="form-control"
+                      placeholder="Time" />
+                    <div id="time-error" class="error-msg"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea
+                  name="message"
+                  id="message-input"
+                  class="form-control"
+                  cols="30"
+                  rows="3"
+                  placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <button
+                  id="appointment-submit-btn"
+                  type="button"
+                  class="btn btn-primary">
+                  Make an Appointment
+                </button>
+              </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="From Dentist website - Appointment form !" />
+              <input type="hidden" name="_captcha" value="false" />
+            </form>
+            <!-- success notification -->
+            <div id="success-notif" class="success-notif">
+              Your booking was successful
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee" />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00" />
+      </svg>
+    </div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+    <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/jquery.timepicker.min.js"></script>
+    <script src="/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="/js/map.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      const hash = window.location.hash;
+      const pathname = window.location.pathname;
+
+      const tokenTypes = [
+        "invite_token",
+        "confirmation_token",
+        "recovery_token",
+        "access_token",
+      ];
+
+      const isToken = tokenTypes.some((type) =>
+        hash.startsWith("#" + type + "=")
+      );
+
+      if (isToken && pathname === "/") {
+        window.location.href = "/admin/" + hash;
+      }
+    </script>
+  </body>
+</html>

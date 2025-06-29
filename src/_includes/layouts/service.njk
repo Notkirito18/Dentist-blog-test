@@ -1,0 +1,14 @@
+{% extends "layouts/service-base.njk" %} {% block content %}
+<section class="service-detail">
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <img src="{{ image }}" alt="{{ title }}" />
+    <p>
+      <em>{{ description }}</em>
+    </p>
+    <div class="service-body">
+      {{ content | safe }}
+    </div>
+  </div>
+</section>
+{% endblock %}

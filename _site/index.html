@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dental Clinic</title>
+    <title>Dentique - Dental Clinic</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -27,8 +27,26 @@
     <link rel="stylesheet" href="/css/icomoon.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/all.min.css" />
+    <script src="/js/map.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256‑GeQMOkCejiWKVhQ5Mj4kLbXokzTvzuYgQ2do4GL91jY="
+      crossorigin="" />
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256‑u4+5iDAbN9CWHWj+zVF85LeSOQV3Bd1ykM7y/fudqgI="
+      crossorigin=""></script>
   </head>
   <body>
+    <!-- success notifications -->
+    <div id="success-notif" class="success-notif">
+      Your booking was successful
+    </div>
+    <div id="subscribe-success-notif" class="success-notif">
+      Subscription successful
+    </div>
     <nav
   class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
   id="ftco-navbar">
@@ -42,7 +60,7 @@
       aria-controls="ftco-nav"
       aria-expanded="false"
       aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
+      <i class="fa-solid fa-bars"></i> Menu
     </button>
 
     <div class="collapse navbar-collapse" id="ftco-nav">
@@ -98,17 +116,8 @@
           <p
             class="mb-4"
             data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
-          </p>
-          <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            <a
-              data-toggle="modal"
-              data-target="#modalRequest"
-              href=""
-              class="btn btn-primary px-4 py-3"
-              >Make an Appointment</a
-            >
+            Experience personalized dental care with state of the art technology
+            in a warm, welcoming environment.
           </p>
         </div>
       </div>
@@ -130,17 +139,8 @@
             Modern Achieve Your Desired Perfect Smile
           </h1>
           <p class="mb-4">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
-          </p>
-          <p>
-            <a
-              data-toggle="modal"
-              data-target="#modalRequest"
-              href=""
-              class="btn btn-primary px-4 py-3"
-              >Make an Appointment</a
-            >
+            Let us craft your ideal smile with advanced treatments and a caring
+            team dedicated to your comfort.
           </p>
         </div>
       </div>
@@ -153,8 +153,11 @@
     <div class="row no-gutters">
       <div class="col-md-3 color-1 p-4">
         <h3 class="mb-4">Emergency Cases</h3>
-        <p>A small river named Duden flows by their place and supplies</p>
-        <span class="phone-number">+ (123) 456 7890</span>
+        <p>
+          We provide 24/7 emergency dental care for sudden tooth pain, injuries,
+          and infections.
+        </p>
+        <span class="phone-number">+2 392 3929 210</span>
       </div>
       <div class="col-md-3 color-2 p-4">
         <h3 class="mb-4">Opening Hours</h3>
@@ -164,7 +167,7 @@
         </p>
         <p class="openinghours d-flex">
           <span>Saturday</span>
-          <span>10:00 - 17:00</span>
+          <span>10:00 - 14:00</span>
         </p>
         <p class="openinghours d-flex">
           <span>Sunday</span>
@@ -173,24 +176,12 @@
       </div>
       <div class="col-md-6 color-3 p-4">
         <h3 class="mb-2">Make an Appointment</h3>
-        <form action="#" class="appointment-form">
+        <form
+          id="appointment-form-hero"
+          action="https://formsubmit.co/djallel123456@gmail.com"
+          method="POST"
+          class="appointment-form">
           <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="select-wrap">
-                  <div class="icon">
-                    <i class="fa-solid fa-arrow-down"></i>
-                  </div>
-                  <select name="" id="" class="form-control">
-                    <option value="">Department</option>
-                    <option value="">Teeth Whitening</option>
-                    <option value="">Teeth CLeaning</option>
-                    <option value="">Quality Brackets</option>
-                    <option value="">Modern Anesthetic</option>
-                  </select>
-                </div>
-              </div>
-            </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <div class="icon">
@@ -198,46 +189,26 @@
                 </div>
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
-                  id="appointment_name"
+                  id="name-hero-input"
                   placeholder="Name" />
               </div>
+              <div id="name-hero-error" class="error-msg"></div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <div class="icon">
-                  <i class="fa-solid fa-paper-plane"></i>
+                  <i class="fa-solid fa-envelope"></i>
                 </div>
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
-                  id="appointment_email"
+                  id="email-hero-input"
                   placeholder="Email" />
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="icon">
-                  <i class="fa-solid fa-calendar-days"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control appointment_date"
-                  placeholder="Date" />
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="icon">
-                  <i class="fa-solid fa-clock"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control appointment_time"
-                  placeholder="Time" />
-              </div>
+              <div id="email-hero-error" class="error-msg"></div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -246,19 +217,84 @@
                 </div>
                 <input
                   type="text"
+                  name="phone"
                   class="form-control"
-                  id="phone"
-                  placeholder="Phone" />
+                  id="phone-hero-input"
+                  placeholder="Phone Number" />
               </div>
+              <div id="phone-hero-error" class="error-msg"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="select-wrap">
+                  <div class="icon">
+                    <i class="fa-solid fa-arrow-down"></i>
+                  </div>
+                  <select
+                    class="form-control"
+                    name="service"
+                    id="service-hero-input">
+                    <option value="none" disabled selected>
+                      Select service
+                    </option>
+                    <option value="Check-Up & Cleaning">
+                      Check-Up & Cleaning
+                    </option>
+                    <option value="Tooth Extraction">Tooth Extraction</option>
+                    <option value="Fillings / Cavities Treatment">
+                      Fillings / Cavities Treatment
+                    </option>
+                    <option value="Braces / Clear Aligners">
+                      Braces / Clear Aligners
+                    </option>
+                    <option value="Root Canal Treatment">
+                      Root Canal Treatment
+                    </option>
+                    <option value="Other / Not Sure">Other / Not Sure</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input
+                  type="date"
+                  name="date"
+                  id="date-hero-input"
+                  class="form-control appointment_date"
+                  placeholder="Date"
+                  style="padding-right: 0" />
+              </div>
+              <div id="date-hero-error" class="error-msg"></div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input
+                  type="time"
+                  name="time"
+                  id="time-hero-input"
+                  class="form-control"
+                  placeholder="Time" />
+              </div>
+              <div id="time-hero-error" class="error-msg"></div>
             </div>
           </div>
 
-          <div class="form-group">
-            <input
-              type="submit"
-              value="Make an Appointment"
-              class="btn btn-primary" />
+          <div class="d-flex justify-content-end">
+            <button
+              id="appointment-hero-submit-btn"
+              type="button"
+              class="btn hero-appointment-btn">
+              Make an Appointment
+            </button>
           </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="From Dentist website - Appointment form !" />
+          <input type="hidden" name="_captcha" value="false" />
         </form>
       </div>
     </div>
@@ -271,80 +307,97 @@
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Our Service Keeps you Smile</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia.
+          Our comprehensive dental services combine expert skills with gentle
+          care to keep your smile healthy every day.
         </p>
       </div>
     </div>
     <div class="row">
+      
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-teeth-whitening.webp"
-              alt="service teeth whitening"
-              class="img-fluid" />
+        <a
+          href="/services_data/teeth-whitening/"
+          class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="/images/service-teeth-whitening.webp"
+                alt="Teeth Whitening"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Teeth Whitening</h3>
+              <p class="service-description">
+                Professional bleaching treatments to safely remove stains and brighten your smile by several shades.
+              </p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Teeth Whitening</h3>
-            <p>
-              A cosmetic treatment that brightens teeth by removing stains and
-              discoloration in office or at home.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
+      
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-bridges.webp"
-              alt="service bridges"
-              class="img-fluid" />
+        <a
+          href="/services_data/bridges/"
+          class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="/images/service-bridges.webp"
+                alt="Bridges"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Bridges</h3>
+              <p class="service-description">
+                A dental appliance that fills gaps between missing teeth, improving function and esthetics.
+              </p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Bridges</h3>
-            <p>
-              A dental appliance that fills gaps between missing teeth,
-              improving function and esthetics.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
+      
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-wisdom-teeth-removal.webp"
-              alt="wisdom teeth removal"
-              class="img-fluid" />
+        <a
+          href="/services_data/crown/"
+          class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="/images/service-crown.webp"
+                alt="Crown"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Crown</h3>
+              <p class="service-description">
+                A custom-made cap that restores a damaged or decayed tooth to its original shape and function, improving strength and appearance.
+              </p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Wisdom Teeth Removal</h3>
-            <p>
-              Surgical extraction of third molars to prevent impaction,
-              crowding, and maintain oral health.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
+      
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-implants.webp"
-              alt="service implants"
-              class="img-fluid" />
+        <a
+          href="/services_data/extractions/"
+          class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="/images/service-extractions.webp"
+                alt="Extractions"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Extractions</h3>
+              <p class="service-description">
+                The safe removal of one or more teeth to relieve pain, prevent infection, or prepare for orthodontic treatment.
+              </p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Implants</h3>
-            <p>
-              A titanium post anchored in the jawbone to support a replacement
-              tooth for durable function.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
+      
     </div>
     <p
       class="services-link"
@@ -367,8 +420,8 @@
         <div class="heading-section heading-section-white ftco-animate pr-md-4">
           <h2 class="mb-3">Achievements</h2>
           <p>
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
+            Over a decade of excellence, delivering top‑tier dental solutions
+            and compassionate care to our community.
           </p>
         </div>
       </div>
@@ -421,17 +474,20 @@
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Testimony</h2>
-        <span class="subheading">Our Happy Customer Says</span>
+        <span class="subheading">What Our Patients Say</span>
       </div>
     </div>
     <div class="row justify-content-center ftco-animate">
       <div class="col-md-8">
         <div class="carousel-testimony owl-carousel ftco-owl">
+          <!-- Testimonial 1 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/uy2cw5hfca8evuhes77l.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
@@ -439,93 +495,107 @@
               </div>
               <div class="text text-center">
                 <p class="testimony-text mb-5">
-                  Even the all-powerful Pointing has no control about the blind
-                  texts it is an almost unorthographic life One day however a
-                  small line of blind text by the name of Lorem Ipsum decided to
-                  leave for the far World of Grammar.
+                  “I felt at ease from my first visit—the team explained every
+                  step, and now my smile has never looked better.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Marketing Manager</span>
+                <p class="name">María Gómez</p>
+                <span class="position">Teeth Whitening</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 2 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_2.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/z5uw96arih6qkubd1jtb.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “After getting my implant, I can eat and smile confidently
+                  again. Truly professional care and a caring staff.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Interface Designer</span>
+                <p class="name">John Miller</p>
+                <span class="position">Dental Implant</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 3 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_3.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108663/Dentist-demo-website/testimonies/qbgv1jtwhhge4fajbhjj.jpg);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “Dr. Al‑Hassan and her team were incredibly gentle during my
+                  root canal—pain‑free and stress‑free experience!”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">UI Designer</span>
+                <p class="name">Fatima Ahmed</p>
+                <span class="position">Root Canal Therapy</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 4 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/f1cykhtnk8u33hyeonbp.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “My children actually look forward to their visits—fun
+                  check‑ups, gentle cleanings, and a welcoming atmosphere!”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Web Developer</span>
+                <p class="name">Sarah Brown</p>
+                <span class="position">Pediatric Cleaning</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 5 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108341/Dentist-demo-website/testimonies/jlr3wtnnc1lu92kv6lky.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “Excellent service, friendly staff, and top‑notch facilities.
+                  Highly recommend for anyone needing dental care.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">System Analytics</span>
+                <p class="name">Mustafa Salem</p>
+                <span class="position">Wisdom Tooth Removal</span>
               </div>
             </div>
           </div>
@@ -534,6 +604,7 @@
     </div>
   </div>
 </section>
+
 <!-- Our Dentists Section -->
 <section class="ftco-section">
   <div class="container">
@@ -541,25 +612,26 @@
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-3">Meet Our Experienced Dentists</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia. It is a paradisematic country, in which
-          roasted parts of sentences
+          Our skilled dental professionals blend advanced expertise and
+          heartfelt care to ensure your healthiest, brightest smile.
         </p>
       </div>
     </div>
     <div class="row">
+      
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(./images/person_5.webp)"></div>
+            style="background-image: url('/images/person_6.webp')"></div>
           <div class="info text-center">
-            <h3><a href="/">Tom Smith</a></h3>
-            <span class="position">Dentist</span>
+            <h3>
+              <a href="/">Dr. Aisha Al‑Hassan</a>
+            </h3>
+            <span class="position">General Dentist</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                “With 10+ years experience, Dr. Al‑Hassan offers gentle preventive, restorative dentistry for all ages.”
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -569,25 +641,27 @@
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(images/person_6.webp)"></div>
+            style="background-image: url('/images/person_5.webp')"></div>
           <div class="info text-center">
-            <h3><a href="/">Mark Wilson</a></h3>
-            <span class="position">Dentist</span>
+            <h3>
+              <a href="/">Dr. Layla Ruiz</a>
+            </h3>
+            <span class="position">Orthodontist</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                “Specializing in clear aligners and braces, Dr. Ruiz crafts aligned, confident smiles with precision.”
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -597,25 +671,27 @@
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(images/person_7.webp)"></div>
+            style="background-image: url('/images/person_7.webp')"></div>
           <div class="info text-center">
-            <h3><a href="/">Patrick Jacobson</a></h3>
-            <span class="position">Dentist</span>
+            <h3>
+              <a href="/">Dr. Emily Smith</a>
+            </h3>
+            <span class="position">Endodontist</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                “Expert in root canal therapy, Dr. Smith uses advanced techniques to relieve pain and preserve teeth.”
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -625,25 +701,27 @@
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(images/person_8.webp)"></div>
+            style="background-image: url('/images/person_8.webp')"></div>
           <div class="info text-center">
-            <h3><a href="/">Ivan Dorchsner</a></h3>
-            <span class="position">System Analyst</span>
+            <h3>
+              <a href="/">Dr. Miguel Silva</a>
+            </h3>
+            <span class="position">Periodontist</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                “Dr. Silva specializes in gum health and implant placement, restoring function, confidence to patients.”
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -653,13 +731,14 @@
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
     <p
       class="services-link"
@@ -678,22 +757,38 @@
       <div class="row d-flex justify-content-center">
         <div
           class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          <h2>Subcribe to our Newsletter</h2>
+          <h2>Subscribe to our Newsletter</h2>
           <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in
+            Stay updated with dental care tips, exclusive offers, and clinic
+            news by subscribing to our newsletter today.
           </p>
           <div class="row d-flex justify-content-center mt-5">
             <div class="col-md-8">
-              <form action="#" class="subscribe-form">
+              <form
+                id="subscribe-form"
+                action="https://formsubmit.co/djallel123456@gmail.com"
+                method="POST"
+                class="subscribe-form">
                 <div class="form-group d-flex">
                   <input
                     type="text"
+                    name="email"
                     class="form-control"
+                    id="email-subscribe-input"
                     placeholder="Enter email address" />
-                  <input type="submit" value="Subscribe" class="submit px-3" />
+                  <button
+                    id="subscribe-submit-btn"
+                    class="submit px-3 subscribe-submit-btn"
+                    type="button">
+                    Subscribe
+                  </button>
                 </div>
+                <div id="email-subscribe-error" class="error-msg"></div>
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="From Dentist website - Newsletter Subscription !" />
+                <input type="hidden" name="_captcha" value="false" />
               </form>
             </div>
           </div>
@@ -709,8 +804,8 @@
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Latest Blog</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia.
+          Explore our expert articles on oral health, treatment breakthroughs,
+          and patient success stories for informed care.
         </p>
       </div>
     </div>
@@ -785,6 +880,7 @@
     </div>
   </div>
 </section>
+<!-- Quote Section -->
 <!-- Quote Section -->
 <section class="ftco-quote">
   <div class="container">
@@ -872,6 +968,7 @@
   </div>
 </section>
 
+<!-- Map Section -->
 <div id="map"></div>
  <footer class="ftco-footer ftco-bg-dark ftco-section">
   <div class="container">
@@ -880,8 +977,9 @@
         <div class="ftco-footer-widget mb-4">
           <h2 class="ftco-heading-2">Dentique.</h2>
           <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
+            Providing trusted, gentle dental care for all ages — from routine
+            checkups to advanced treatments — in a warm, patient-first
+            environment. Your smile is our priority
           </p>
         </div>
         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -904,8 +1002,7 @@
               <li>
                 <i class="fa-solid fa-location-dot"></i
                 ><span class="text pl-3"
-                  >203 Fake St. Mountain View, San Francisco, California,
-                  USA</span
+                  >203 Rain St. Mountain View, New york, USA</span
                 >
               </li>
               <li>
@@ -915,9 +1012,9 @@
                 >
               </li>
               <li>
-                <a href="#"
+                <a href="mailto:info@dentique.org"
                   ><i class="fa-solid fa-envelope"></i
-                  ><span class="text pl-3">info@yourdomain.com</span></a
+                  ><span class="text pl-3">info@dentique.org</span></a
                 >
               </li>
             </ul>
@@ -956,10 +1053,8 @@
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalRequestLabel">
-              Make an Appointment
-            </h5>
+          <div class="modal-header modal-header-opening-hours">
+            <h5 class="modal-title" id="modalRequestLabel">Opening Hours</h5>
             <button
               type="button"
               class="close"
@@ -968,61 +1063,122 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <div class="modal-body modal-body-opening-hours">
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Monday - Friday</span>
+              <span>8:00 - 19:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Saturday</span>
+              <span>10:00 - 17:00</span>
+            </p>
+            <p class="openinghours d-flex px-5 justify-content-between">
+              <span>Sunday</span>
+              <span>10:00 - 14:00</span>
+            </p>
+          </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRequestLabel">
+              Make an Appointment
+            </h5>
+          </div>
           <div class="modal-body">
-            <form action="#">
+            <form
+              id="appointment-form"
+              action="https://formsubmit.co/djallel123456@gmail.com"
+              method="POST">
               <div class="form-group">
-                <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
-                  id="appointment_name"
+                  id="name-input"
                   placeholder="Full Name" />
+                <div id="name-error" class="error-msg"></div>
               </div>
               <div class="form-group">
-                <!-- <label for="appointment_email" class="text-black">Email</label> -->
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
-                  id="appointment_email"
+                  id="email-input"
                   placeholder="Email" />
+                <div id="email-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control"
+                  id="phone-input"
+                  placeholder="Phone Number" />
+                <div id="phone-error" class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="service" id="service-input">
+                  <option value="none" disabled selected>Select service</option>
+                  <option value="Check-Up & Cleaning">
+                    Check-Up & Cleaning
+                  </option>
+                  <option value="Tooth Extraction">Tooth Extraction</option>
+                  <option value="Fillings / Cavities Treatment">
+                    Fillings / Cavities Treatment
+                  </option>
+                  <option value="Braces / Clear Aligners">
+                    Braces / Clear Aligners
+                  </option>
+                  <option value="Root Canal Treatment">
+                    Root Canal Treatment
+                  </option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_date" class="text-black">Date</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_date"
+                      type="date"
+                      id="date-input"
+                      name="date"
+                      class="form-control"
                       placeholder="Date" />
+                    <div id="date-error" class="error-msg"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <label for="appointment_time" class="text-black">Time</label> -->
                     <input
-                      type="text"
-                      class="form-control appointment_time"
+                      type="time"
+                      id="time-input"
+                      name="time"
+                      class="form-control"
                       placeholder="Time" />
+                    <div id="time-error" class="error-msg"></div>
                   </div>
                 </div>
               </div>
-
               <div class="form-group">
-                <!-- <label for="appointment_message" class="text-black">Message</label> -->
                 <textarea
-                  name=""
-                  id="appointment_message"
+                  name="message"
+                  id="message-input"
                   class="form-control"
                   cols="30"
-                  rows="10"
+                  rows="3"
                   placeholder="Message"></textarea>
               </div>
-              <div class="form-group">
-                <input
-                  type="submit"
-                  value="Make an Appointment"
-                  class="btn btn-primary" />
+              <div class="form-group d-flex justify-content-end">
+                <button
+                  id="appointment-submit-btn"
+                  type="button"
+                  class="btn btn-primary make-appointment-btn">
+                  Make an Appointment
+                </button>
               </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="From Dentist website - Appointment form !" />
+              <input type="hidden" name="_captcha" value="false" />
             </form>
           </div>
         </div>
@@ -1067,8 +1223,9 @@
     <script src="/js/jquery.timepicker.min.js"></script>
     <script src="/js/scrollax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/js/google-map.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/forms.js"></script>
+
     <script>
       const hash = window.location.hash;
       const pathname = window.location.pathname;

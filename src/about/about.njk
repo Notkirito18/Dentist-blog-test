@@ -3,32 +3,25 @@ layout: layouts/base.njk
 title: "About Us"
 permalink: "/about/"
 ---
-
-<section class="home-slider owl-carousel">
-  <div
-    class="slider-item bread-item"
-    style="background-image: url(/images/bg_2.webp)"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container" data-scrollax-parent="true">
-      <div class="row slider-text align-items-end">
-        <div class="col-md-7 col-sm-12 ftco-animate mb-5">
-          <p
-            class="breadcrumbs"
-            data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-            <span class="mr-2"><a href="/">Home</a></span>
-            <span>About</span>
-          </p>
-          <h1
-            class="mb-3"
-            data-scrollax=" properties: { translateY: '70%', opacity: .9}">
-            About Us
-          </h1>
-        </div>
+<section class="page-hero">
+  <div class="hero-mask" style="background-image: url(/images/bg_2.webp);">
+    <div class="service-overlay"></div>
+    <div class="container service-page-hero-content mb-5">
+      <div class="row">
+        <p class="breadcrumbs ml-3 ml-lg-0">
+          <span class="mr-2"><a href="/">Home</a></span>
+          <span>About</span>
+        </p>
       </div>
+      <h1
+      class="hero-title mb-3"
+      data-scrollax=" properties: { translateY: '70%', opacity: .9}">
+      Your Trusted Dental Experts
+    </h1>
     </div>
   </div>
 </section>
+
 
 <section class="ftco-section">
   <div class="container">
@@ -285,25 +278,26 @@ permalink: "/about/"
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-3">Meet Our Experienced Dentists</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia. It is a paradisematic country, in which
-          roasted parts of sentences
+          Our skilled team combines advanced training and compassionate care to
+          create healthy, confident smiles.
         </p>
       </div>
     </div>
     <div class="row">
+      {% for dentist in collections.dentists %}
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(/images/person_5.webp)"></div>
+            style="background-image: url('{{ dentist.data.thumbnail }}')"></div>
           <div class="info text-center">
-            <h3><a href="/">Tom Smith</a></h3>
-            <span class="position">Dentist</span>
+            <h3>
+              <a href="/">{{ dentist.data.title }}</a>
+            </h3>
+            <span class="position">{{ dentist.data.position }}</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                {{ dentist.data.description }}
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -313,209 +307,14 @@ permalink: "/about/"
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_6.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Mark Wilson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_7.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Patrick Jacobson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_8.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Ivan Dorchsner</a></h3>
-            <span class="position">System Analyst</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_1.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Tom Smith</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_2.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Mark Wilson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_3.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Patrick Jacobson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(/images/person_4.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Ivan Dorchsner</a></h3>
-            <span class="position">System Analyst</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

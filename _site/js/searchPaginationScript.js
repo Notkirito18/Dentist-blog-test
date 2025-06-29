@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const posts = Array.from(document.querySelectorAll(".blog-entry"));
   const paginationContainer = document.getElementById("pagination-controls");
   const searchInput = document.getElementById("search-input");
+  searchInput.value = "";
 
   let filteredPosts = posts;
   let currentPage = 1;
@@ -42,12 +43,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showPage(page) {
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+    const noResultsEl = document.getElementById("no-results");
+
     if (page < 1) page = 1;
     if (page > totalPages) page = totalPages;
     currentPage = page;
 
+    // Hide all posts
     posts.forEach((post) => (post.style.display = "none"));
 
+    if (filteredPosts.length === 0) {
+      if (noResultsEl) noResultsEl.style.display = "block";
+      paginationContainer.innerHTML = ""; // Clear pagination if nothing to show
+      return;
+    } else {
+      if (noResultsEl) noResultsEl.style.display = "none";
+    }
+
+    // Show current page's posts
     filteredPosts.forEach((post, index) => {
       if (index >= (page - 1) * postsPerPage && index < page * postsPerPage) {
         post.style.display = "block";

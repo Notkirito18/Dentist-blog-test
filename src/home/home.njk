@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: "Dental Clinic"
+title: "Dentique - Dental Clinic"
 permalink: "/"
 ---
 
@@ -23,17 +23,8 @@ permalink: "/"
           <p
             class="mb-4"
             data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
-          </p>
-          <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            <a
-              data-toggle="modal"
-              data-target="#modalRequest"
-              href=""
-              class="btn btn-primary px-4 py-3"
-              >Make an Appointment</a
-            >
+            Experience personalized dental care with state of the art technology
+            in a warm, welcoming environment.
           </p>
         </div>
       </div>
@@ -55,17 +46,8 @@ permalink: "/"
             Modern Achieve Your Desired Perfect Smile
           </h1>
           <p class="mb-4">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
-          </p>
-          <p>
-            <a
-              data-toggle="modal"
-              data-target="#modalRequest"
-              href=""
-              class="btn btn-primary px-4 py-3"
-              >Make an Appointment</a
-            >
+            Let us craft your ideal smile with advanced treatments and a caring
+            team dedicated to your comfort.
           </p>
         </div>
       </div>
@@ -78,8 +60,11 @@ permalink: "/"
     <div class="row no-gutters">
       <div class="col-md-3 color-1 p-4">
         <h3 class="mb-4">Emergency Cases</h3>
-        <p>A small river named Duden flows by their place and supplies</p>
-        <span class="phone-number">+ (123) 456 7890</span>
+        <p>
+          We provide 24/7 emergency dental care for sudden tooth pain, injuries,
+          and infections.
+        </p>
+        <span class="phone-number">+2 392 3929 210</span>
       </div>
       <div class="col-md-3 color-2 p-4">
         <h3 class="mb-4">Opening Hours</h3>
@@ -89,7 +74,7 @@ permalink: "/"
         </p>
         <p class="openinghours d-flex">
           <span>Saturday</span>
-          <span>10:00 - 17:00</span>
+          <span>10:00 - 14:00</span>
         </p>
         <p class="openinghours d-flex">
           <span>Sunday</span>
@@ -98,24 +83,12 @@ permalink: "/"
       </div>
       <div class="col-md-6 color-3 p-4">
         <h3 class="mb-2">Make an Appointment</h3>
-        <form action="#" class="appointment-form">
+        <form
+          id="appointment-form-hero"
+          action="https://formsubmit.co/djallel123456@gmail.com"
+          method="POST"
+          class="appointment-form">
           <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="select-wrap">
-                  <div class="icon">
-                    <i class="fa-solid fa-arrow-down"></i>
-                  </div>
-                  <select name="" id="" class="form-control">
-                    <option value="">Department</option>
-                    <option value="">Teeth Whitening</option>
-                    <option value="">Teeth CLeaning</option>
-                    <option value="">Quality Brackets</option>
-                    <option value="">Modern Anesthetic</option>
-                  </select>
-                </div>
-              </div>
-            </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <div class="icon">
@@ -123,46 +96,26 @@ permalink: "/"
                 </div>
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
-                  id="appointment_name"
+                  id="name-hero-input"
                   placeholder="Name" />
               </div>
+              <div id="name-hero-error" class="error-msg"></div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <div class="icon">
-                  <i class="fa-solid fa-paper-plane"></i>
+                  <i class="fa-solid fa-envelope"></i>
                 </div>
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
-                  id="appointment_email"
+                  id="email-hero-input"
                   placeholder="Email" />
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="icon">
-                  <i class="fa-solid fa-calendar-days"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control appointment_date"
-                  placeholder="Date" />
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <div class="icon">
-                  <i class="fa-solid fa-clock"></i>
-                </div>
-                <input
-                  type="text"
-                  class="form-control appointment_time"
-                  placeholder="Time" />
-              </div>
+              <div id="email-hero-error" class="error-msg"></div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -171,19 +124,84 @@ permalink: "/"
                 </div>
                 <input
                   type="text"
+                  name="phone"
                   class="form-control"
-                  id="phone"
-                  placeholder="Phone" />
+                  id="phone-hero-input"
+                  placeholder="Phone Number" />
               </div>
+              <div id="phone-hero-error" class="error-msg"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="select-wrap">
+                  <div class="icon">
+                    <i class="fa-solid fa-arrow-down"></i>
+                  </div>
+                  <select
+                    class="form-control"
+                    name="service"
+                    id="service-hero-input">
+                    <option value="none" disabled selected>
+                      Select service
+                    </option>
+                    <option value="Check-Up & Cleaning">
+                      Check-Up & Cleaning
+                    </option>
+                    <option value="Tooth Extraction">Tooth Extraction</option>
+                    <option value="Fillings / Cavities Treatment">
+                      Fillings / Cavities Treatment
+                    </option>
+                    <option value="Braces / Clear Aligners">
+                      Braces / Clear Aligners
+                    </option>
+                    <option value="Root Canal Treatment">
+                      Root Canal Treatment
+                    </option>
+                    <option value="Other / Not Sure">Other / Not Sure</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input
+                  type="date"
+                  name="date"
+                  id="date-hero-input"
+                  class="form-control appointment_date"
+                  placeholder="Date"
+                  style="padding-right: 0" />
+              </div>
+              <div id="date-hero-error" class="error-msg"></div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input
+                  type="time"
+                  name="time"
+                  id="time-hero-input"
+                  class="form-control"
+                  placeholder="Time" />
+              </div>
+              <div id="time-hero-error" class="error-msg"></div>
             </div>
           </div>
 
-          <div class="form-group">
-            <input
-              type="submit"
-              value="Make an Appointment"
-              class="btn btn-primary" />
+          <div class="d-flex justify-content-end">
+            <button
+              id="appointment-hero-submit-btn"
+              type="button"
+              class="btn hero-appointment-btn">
+              Make an Appointment
+            </button>
           </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="From Dentist website - Appointment form !" />
+          <input type="hidden" name="_captcha" value="false" />
         </form>
       </div>
     </div>
@@ -196,80 +214,34 @@ permalink: "/"
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Our Service Keeps you Smile</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia.
+          Our comprehensive dental services combine expert skills with gentle
+          care to keep your smile healthy every day.
         </p>
       </div>
     </div>
     <div class="row">
+      {% for service in collections.homeServices %}
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-teeth-whitening.webp"
-              alt="service teeth whitening"
-              class="img-fluid" />
+        <a
+          href="{{ service.url }}"
+          class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="{{ service.data.thumbnail }}"
+                alt="{{ service.data.title }}"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">{{ service.data.title }}</h3>
+              <p class="service-description">
+                {{ service.data.description }}
+              </p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Teeth Whitening</h3>
-            <p>
-              A cosmetic treatment that brightens teeth by removing stains and
-              discoloration in office or at home.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-bridges.webp"
-              alt="service bridges"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Bridges</h3>
-            <p>
-              A dental appliance that fills gaps between missing teeth,
-              improving function and esthetics.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-wisdom-teeth-removal.webp"
-              alt="wisdom teeth removal"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Wisdom Teeth Removal</h3>
-            <p>
-              Surgical extraction of third molars to prevent impaction,
-              crowding, and maintain oral health.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-implants.webp"
-              alt="service implants"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Implants</h3>
-            <p>
-              A titanium post anchored in the jawbone to support a replacement
-              tooth for durable function.
-            </p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <p
       class="services-link"
@@ -292,8 +264,8 @@ permalink: "/"
         <div class="heading-section heading-section-white ftco-animate pr-md-4">
           <h2 class="mb-3">Achievements</h2>
           <p>
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
+            Over a decade of excellence, delivering top‑tier dental solutions
+            and compassionate care to our community.
           </p>
         </div>
       </div>
@@ -346,17 +318,20 @@ permalink: "/"
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Testimony</h2>
-        <span class="subheading">Our Happy Customer Says</span>
+        <span class="subheading">What Our Patients Say</span>
       </div>
     </div>
     <div class="row justify-content-center ftco-animate">
       <div class="col-md-8">
         <div class="carousel-testimony owl-carousel ftco-owl">
+          <!-- Testimonial 1 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/uy2cw5hfca8evuhes77l.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
@@ -364,93 +339,107 @@ permalink: "/"
               </div>
               <div class="text text-center">
                 <p class="testimony-text mb-5">
-                  Even the all-powerful Pointing has no control about the blind
-                  texts it is an almost unorthographic life One day however a
-                  small line of blind text by the name of Lorem Ipsum decided to
-                  leave for the far World of Grammar.
+                  “I felt at ease from my first visit—the team explained every
+                  step, and now my smile has never looked better.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Marketing Manager</span>
+                <p class="name">María Gómez</p>
+                <span class="position">Teeth Whitening</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 2 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_2.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/z5uw96arih6qkubd1jtb.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “After getting my implant, I can eat and smile confidently
+                  again. Truly professional care and a caring staff.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Interface Designer</span>
+                <p class="name">John Miller</p>
+                <span class="position">Dental Implant</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 3 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_3.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108663/Dentist-demo-website/testimonies/qbgv1jtwhhge4fajbhjj.jpg);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “Dr. Al‑Hassan and her team were incredibly gentle during my
+                  root canal—pain‑free and stress‑free experience!”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">UI Designer</span>
+                <p class="name">Fatima Ahmed</p>
+                <span class="position">Root Canal Therapy</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 4 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108340/Dentist-demo-website/testimonies/f1cykhtnk8u33hyeonbp.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “My children actually look forward to their visits—fun
+                  check‑ups, gentle cleanings, and a welcoming atmosphere!”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">Web Developer</span>
+                <p class="name">Sarah Brown</p>
+                <span class="position">Pediatric Cleaning</span>
               </div>
             </div>
           </div>
+
+          <!-- Testimonial 5 -->
           <div class="item">
             <div class="testimony-wrap p-4 pb-5">
               <div
                 class="user-img mb-5"
-                style="background-image: url(images/person_1.webp)">
+                style="
+                  background-image: url(https://res.cloudinary.com/notkirito18/image/upload/v1751108341/Dentist-demo-website/testimonies/jlr3wtnnc1lu92kv6lky.webp);
+                ">
                 <span
                   class="quote d-flex align-items-center justify-content-center">
                   <i class="fa-solid fa-quote-left"></i>
                 </span>
               </div>
               <div class="text text-center">
-                <p class="mb-5 testimony-text">
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
+                <p class="testimony-text mb-5">
+                  “Excellent service, friendly staff, and top‑notch facilities.
+                  Highly recommend for anyone needing dental care.”
                 </p>
-                <p class="name">Dennis Green</p>
-                <span class="position">System Analytics</span>
+                <p class="name">Mustafa Salem</p>
+                <span class="position">Wisdom Tooth Removal</span>
               </div>
             </div>
           </div>
@@ -459,6 +448,7 @@ permalink: "/"
     </div>
   </div>
 </section>
+
 <!-- Our Dentists Section -->
 <section class="ftco-section">
   <div class="container">
@@ -466,25 +456,26 @@ permalink: "/"
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-3">Meet Our Experienced Dentists</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia. It is a paradisematic country, in which
-          roasted parts of sentences
+          Our skilled dental professionals blend advanced expertise and
+          heartfelt care to ensure your healthiest, brightest smile.
         </p>
       </div>
     </div>
     <div class="row">
+      {% for dentist in collections.homeDentists %}
       <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div
             class="img mb-4"
-            style="background-image: url(./images/person_5.webp)"></div>
+            style="background-image: url('{{ dentist.data.thumbnail }}')"></div>
           <div class="info text-center">
-            <h3><a href="/">Tom Smith</a></h3>
-            <span class="position">Dentist</span>
+            <h3>
+              <a href="/">{{ dentist.data.title }}</a>
+            </h3>
+            <span class="position">{{ dentist.data.position }}</span>
             <div class="text">
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
+                {{ dentist.data.description }}
               </p>
               <ul class="ftco-social">
                 <li class="ftco-animate">
@@ -494,97 +485,14 @@ permalink: "/"
                   <a href="#"><i class="fa-solid fa-phone"></i></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(images/person_6.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Mark Wilson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(images/person_7.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Patrick Jacobson</a></h3>
-            <span class="position">Dentist</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div
-            class="img mb-4"
-            style="background-image: url(images/person_8.webp)"></div>
-          <div class="info text-center">
-            <h3><a href="/">Ivan Dorchsner</a></h3>
-            <span class="position">System Analyst</span>
-            <div class="text">
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia
-              </p>
-              <ul class="ftco-social">
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li class="ftco-animate">
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <p
       class="services-link"
@@ -603,22 +511,38 @@ permalink: "/"
       <div class="row d-flex justify-content-center">
         <div
           class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          <h2>Subcribe to our Newsletter</h2>
+          <h2>Subscribe to our Newsletter</h2>
           <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in
+            Stay updated with dental care tips, exclusive offers, and clinic
+            news by subscribing to our newsletter today.
           </p>
           <div class="row d-flex justify-content-center mt-5">
             <div class="col-md-8">
-              <form action="#" class="subscribe-form">
+              <form
+                id="subscribe-form"
+                action="https://formsubmit.co/djallel123456@gmail.com"
+                method="POST"
+                class="subscribe-form">
                 <div class="form-group d-flex">
                   <input
                     type="text"
+                    name="email"
                     class="form-control"
+                    id="email-subscribe-input"
                     placeholder="Enter email address" />
-                  <input type="submit" value="Subscribe" class="submit px-3" />
+                  <button
+                    id="subscribe-submit-btn"
+                    class="submit px-3 subscribe-submit-btn"
+                    type="button">
+                    Subscribe
+                  </button>
                 </div>
+                <div id="email-subscribe-error" class="error-msg"></div>
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="From Dentist website - Newsletter Subscription !" />
+                <input type="hidden" name="_captcha" value="false" />
               </form>
             </div>
           </div>
@@ -634,8 +558,8 @@ permalink: "/"
       <div class="col-md-7 text-center heading-section ftco-animate">
         <h2 class="mb-2">Latest Blog</h2>
         <p>
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia.
+          Explore our expert articles on oral health, treatment breakthroughs,
+          and patient success stories for informed care.
         </p>
       </div>
     </div>
@@ -671,90 +595,6 @@ permalink: "/"
   </div>
 </section>
 <!-- Quote Section -->
-<section class="ftco-quote">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
-        <div class="heading-section heading-section-white mb-5 ftco-animate">
-          <h2 class="mb-2">Dentique Procedure &amp; High Quality Services</h2>
-        </div>
-        <div class="ftco-animate">
-          <p>
-            Even the all-powerful Pointing has no control about the blind texts
-            it is an almost unorthographic life One day however a small line of
-            blind text by the name of Lorem Ipsum decided to leave for the far
-            World of Grammar. Because there were thousands of bad Commas, wild
-            Question Marks and devious Semikoli
-          </p>
-          <ul class="un-styled my-5">
-            <li>
-              <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Consectetur adipisicing elit </span>
-            </li>
-            <li>
-              <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Adipisci repellat accusamus </span>
-            </li>
-            <li>
-              <i class="fa-sharp-duotone fa-solid fa-check"></i>
-              <span class="ml-1"> Tempore reprehenderit vitae </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6 py-5 pl-md-5">
-        <div class="heading-section mb-5 ftco-animate">
-          <h2 class="mb-2">Get a Free Quote</h2>
-        </div>
-        <form action="#" class="ftco-animate">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Full Name" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Phone" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Website" />
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="7"
-                  class="form-control"
-                  placeholder="Message"></textarea>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <input
-                  type="submit"
-                  value="Get a Quote"
-                  class="btn btn-primary py-3 px-5" />
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
+{% include "partials/quote.njk" %}
+<!-- Map Section -->
 <div id="map"></div>

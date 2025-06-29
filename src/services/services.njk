@@ -4,28 +4,21 @@ title: "Our Services"
 permalink: "/services/"
 ---
 
-<section class="home-slider owl-carousel">
-  <div
-    class="slider-item bread-item"
-    style="background-image: url('/images/bg_1.webp')"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container" data-scrollax-parent="true">
-      <div class="row slider-text align-items-end">
-        <div class="col-md-7 col-sm-12 ftco-animate mb-5">
-          <p
-            class="breadcrumbs"
-            data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-            <span class="mr-2"><a href="/">Home</a></span>
-            <span>Services</span>
-          </p>
-          <h1
-            class="mb-3"
-            data-scrollax=" properties: { translateY: '70%', opacity: .9}">
-            Our Service Keeps you Smile
-          </h1>
-        </div>
+<section class="page-hero">
+  <div class="hero-mask" style="background-image: url(/images/bg_1.webp);">
+    <div class="service-overlay"></div>
+    <div class="container service-page-hero-content mb-5">
+      <div class="row">
+        <p class="breadcrumbs ml-3 ml-lg-0">
+          <span class="mr-2"><a href="/">Home</a></span>
+          <span>Services</span>
+        </p>
       </div>
+      <h1
+      class="hero-title mb-3"
+      data-scrollax=" properties: { translateY: '70%', opacity: .9}">
+      Our Service Keeps you Smile
+    </h1>
     </div>
   </div>
 </section>
@@ -42,143 +35,25 @@ permalink: "/services/"
       </div>
     </div>
     <div class="row">
+      {% for service in collections.services %}
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-teeth-whitening.webp"
-              alt="service teeth whitening"
-              class="img-fluid" />
+        <a href="{{ service.url }}" class="text-decoration-none text-reset w-100">
+          <div class="media block-6 services d-block text-center h-100">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <img
+                src="{{ service.data.thumbnail }}"
+                alt="{{ service.data.title }}"
+                class="img-fluid" />
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">{{ service.data.title }}</h3>
+              <p class="service-description">{{ service.data.description }}</p>
+            </div>
           </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Teeth Whitening</h3>
-            <p>
-              A cosmetic treatment that brightens teeth by removing stains and
-              discoloration in office or at home.
-            </p>
-          </div>
-        </div>
+        </a>
       </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-bridges.webp"
-              alt="service bridges"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Bridges</h3>
-            <p>
-              A dental appliance that fills gaps between missing teeth,
-              improving function and esthetics.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-wisdom-teeth-removal.webp"
-              alt="wisdom teeth removal"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Wisdom Teeth Removal</h3>
-            <p>
-              Surgical extraction of third molars to prevent impaction,
-              crowding, and maintain oral health.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-implants.webp"
-              alt="service implants"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Implants</h3>
-            <p>
-              A titanium post anchored in the jawbone to support a replacement
-              tooth for durable function.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-crown.webp"
-              alt="service crown"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Crown</h3>
-            <p>
-              A custom-fit cap placed over a damaged tooth to restore shape,
-              strength, and appearance.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-extractions.webp"
-              alt="service extractions"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Extractions</h3>
-            <p>
-              The removal of a tooth from its socket to address decay, crowding,
-              impaction, or pain relief.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-filling.webp"
-              alt="service filling"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Tooth Filling</h3>
-            <p>
-              Also known as enameloplasty, reshaping tooth enamel for improved
-              appearance and comfort.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services d-block text-center">
-          <div class="icon d-flex justify-content-center align-items-center">
-            <img
-              src="/images/service-veneers.webp"
-              alt="service veneers"
-              class="img-fluid" />
-          </div>
-          <div class="media-body p-2 mt-3">
-            <h3 class="heading">Veneers</h3>
-            <p>
-              Thin porcelain shells bonded to front teeth to improve color,
-              shape, and symmetry for a smile.
-            </p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
+    </div>
     </div>
   </div>
 </section>
