@@ -3,7 +3,9 @@ layout: layouts/blog-post.njk
 title: How to choose your first dental unit?
 date: 2025-06-29T10:58:56.684Z
 author: Dr Fatima
-description: this is the description content
+description: "**Selecting your first dental unit is a critical decision that
+  will influence the efficiency and comfort of your practice for years to
+  come**"
 thumbnail: /images/model-one-product-page-2x-2-1024x768.png
 ---
 <!--StartFragment-->
