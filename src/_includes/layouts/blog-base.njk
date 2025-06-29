@@ -10,6 +10,7 @@
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700"
       rel="stylesheet" />
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="/css/animate.css" />
@@ -35,19 +36,17 @@
       <div class="hero-mask" style="background-image: url(/images/bg_3.webp)">
         <div class="service-overlay"></div>
         <div class="container service-page-hero-content mb-5">
-          <div class="row">
-            <p
-              class="breadcrumbs"
-              data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-              <span class="mr-2"><a href="/">Home</a></span>
-              {% if title == "Our Blog" %}
-              <span>Blog</span>
-              {% else %}
-              <span class="mr-2"><a href="/blog/">Blog</a></span>
-              <span>{{ title }}</span>
-              {% endif %}
-            </p>
-          </div>
+          <p
+            class="breadcrumbs"
+            data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+            <span class="mr-2"><a href="/">Home</a></span>
+            {% if title == "Our Blog" %}
+            <span>Blog</span>
+            {% else %}
+            <span class="mr-2"><a href="/blog/">Blog</a></span>
+            <span>{{ title }}</span>
+            {% endif %}
+          </p>
           <h1
             class="hero-title mb-3"
             data-scrollax=" properties: { translateY: '70%', opacity: .9}">
@@ -281,8 +280,9 @@
     <script src="/js/jquery.timepicker.min.js"></script>
     <script src="/js/scrollax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="/js/map.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/forms.js"></script>
+
     <script>
       const hash = window.location.hash;
       const pathname = window.location.pathname;

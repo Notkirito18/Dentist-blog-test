@@ -68,6 +68,10 @@ module.exports = function (eleventyConfig) {
       data: "_data",
       output: "_site",
     },
+    // Dev server options
+    serverOptions: {
+      port: 8085,
+    },
     // 3. Set template engines:
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

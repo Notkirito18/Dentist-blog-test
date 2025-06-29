@@ -7,7 +7,7 @@ description:
   tooth-colored materials."
 thumbnail: "/images/service-filling.webp"
 hero_image: "https://res.cloudinary.com/notkirito18/image/upload/v1751021156/Dentist-demo-website/services/hero%20images/filling-hero.webp"
-video: https://res.cloudinary.com/notkirito18/video/upload/v1751021273/Dentist-demo-website/services/videos/Filling-video.mp4"
+video: "https://res.cloudinary.com/notkirito18/video/upload/v1751021273/Dentist-demo-website/services/videos/Filling-video.mp4"
 video_thumbnail: "https://res.cloudinary.com/notkirito18/image/upload/v1751020546/Dentist-demo-website/services/video%20thumbnails/filling-video-thumbnail.webp"
 content_image: "https://res.cloudinary.com/notkirito18/image/upload/v1751138118/Dentist-demo-website/services/content%20images/filling_mjqnaz.webp"
 text:

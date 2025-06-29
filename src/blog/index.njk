@@ -6,7 +6,9 @@ eleventyNavigation:
 ---
 
 {% extends "layouts/blog-base.njk" %} {% block content %}
-<h3 class="mb-2">Find what interests you</h3>
+<div class="heading-section mb-4">
+  <h2 class="mb-2">Find what interests you</h2>
+</div>
 <form class="search-form">
   <div class="form-group">
     <span class="icon fa fa-search"></span>
@@ -47,7 +49,7 @@ eleventyNavigation:
       </div>
     </div>
   </article>
-  <p id="no-results" class="text-center text-muted my-4" style="display: none;">
+  <p id="no-results" class="text-center text-muted my-4" style="display: none">
     We couldn’t find any blog posts matching your search.
   </p>
   {% endfor %}
